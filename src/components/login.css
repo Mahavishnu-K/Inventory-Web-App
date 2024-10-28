@@ -4,7 +4,7 @@
     border-radius: 8px;
     box-shadow: 3px 3px 20px gray;
     overflow: hidden;
-    width: 600px;
+    width: auto;
 }
 
 .form-container{
@@ -38,24 +38,46 @@
 }
 
 label{
-    display: block;
+    display: inline;
+    margin-left: 8%;
     margin-bottom: 5px;
-    font-weight: 500;
+    font-weight: 370;
 }
 
 input, select{
     width: 100%;
     padding: 10px;
     border: 1px solid #ccc;
-    border-radius: 5px;
+    margin-left: 8%;
+    border-radius: 10px;
 }
 
 button{
-    width: 100%;
+    width: 107%;
     padding: 10px 15px;
     background-color: #0E2547;
     color: white;
     border: none;
-    border-radius: 5px;
+    margin-left: 8%;
+    border-radius: 20px;
     cursor: pointer;
+}
+
+.image-container{
+    padding-top: 70px;
+}
+
+.login-link{
+    margin-left: 8%;
+    display: inline-flex;
+    width: 110%;
+}
+
+.login-link a{
+    margin-left: 30%;
+    margin-top: 15px;
+}
+
+#user-role{
+    width: 106%;
 }

@@ -1,4 +1,5 @@
 import './login.css'
+import Signupimg from '@/assets/SignupIcon.svg'
 
 function Login(){
     return(
@@ -39,12 +40,14 @@ function Login(){
                     <button type="submit">Register</button>
                 </form>
                 <div className='login-link'>
-                    Already have an Account? <a href="#">Log in</a>
+                    <p>Already have an Account? </p>
+                    <a href="#">Log in</a>
+                    
                 </div>
                 
             </div>
             <div className='image-container'>
-                <img src="" alt="Sign up Image" />
+                <img src={Signupimg} alt="Sign up Image" style={{width:'450px'}} />
             </div>
         </div>
     )
