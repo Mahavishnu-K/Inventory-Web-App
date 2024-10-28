@@ -17,7 +17,7 @@ function Login(){
                         <input type="email" onChange={(e)=>{setEmail(e.target.value)}} placeholder="Enter your email" id="email" required/>
                     </div>
                     <div className='form-group'>
-                        <label htmlFor="username">Password</label>
+                        <label htmlFor="username">User name</label>
                         <input type="text" onChange={(e)=>{setPassword(e.target.value)}} placeholder="Enter your user name" id="username" required/>
                     </div> 
                     <div className='form-group'>  
