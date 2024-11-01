@@ -1,7 +1,7 @@
-import './login.css'
+import '@/styles/signup.css'
 import Signupimg from '@/assets/SignupIcon.svg'
 
-function Login(){
+function Signup(){
     return(
         <div className='login-card'>
             <div className='form-container'>
@@ -53,4 +53,4 @@ function Login(){
     )
 }
 
-export default Login
+export default Signup
