@@ -1,0 +1,42 @@
+.table-container {
+    max-width: 1070px;
+    margin: 20px auto;
+    border: 1px solid #e0e0e0;
+    border-radius: 5px;
+    overflow: hidden;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  .table-scrollable {
+    height: 380px; 
+    overflow-y: auto;
+  }
+  
+  td {
+    text-align: center;
+    padding: 12px;
+    border-bottom: 1px solid #aebbe2;
+    
+  }
+  
+  th {
+    padding: 12px;
+    background-color: #aebbe2;
+    font-weight: bold;
+    position: sticky;
+    top: 0; 
+    z-index: 1;
+  }
+  
+  .in-stock {
+    color: green;
+  }
+  
+  .out-of-stock {
+    color: red;
+  }
+  

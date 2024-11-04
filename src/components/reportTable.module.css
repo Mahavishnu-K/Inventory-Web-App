@@ -1,0 +1,42 @@
+.tableContainer {
+    padding: 20px;
+    width: 100%;
+    margin-left: -20px;
+}
+
+.tableWrapper {
+    max-height: 300px; 
+    overflow-y: auto;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.orderTable {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.orderTable th, .orderTable td {
+    padding: 12px 16px;
+    text-align: center;
+    font-size: 16px;
+}
+
+.orderTable th {
+    background-color: #e0e7f5;
+    color: #0E2547;
+    font-weight: 600;
+}
+
+.orderTable tbody tr:nth-child(odd) {
+    background-color: #f9f9f9;
+}
+
+.orderTable tbody tr:nth-child(even) {
+    background-color: #ffffff;
+}
+
+.orderTable tbody td {
+    color: #555;
+}
