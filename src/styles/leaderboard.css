@@ -5,11 +5,11 @@
     height: auto;
     background-color: #f9f9f9;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 1px 1px 10px rgb(205, 201, 201);
 }
 
 .leaderboard-title {
-    margin-top: -80px;
+    margin-top: 75px;
     margin-left: 180px;
     margin-bottom: 50px;
     font-size: 1.5em;

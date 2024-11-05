@@ -15,8 +15,6 @@ const Leaderboard = () => {
         { supplierName: 'Supplier H', trustPoints: 690 },
         { supplierName: 'Supplier I', trustPoints: 670 },
         { supplierName: 'Supplier J', trustPoints: 650 },
-        { supplierName: 'Supplier K', trustPoints: 630 },
-        { supplierName: 'Supplier L', trustPoints: 610 },
     ];
 
     const [leaderboardData, setLeaderboardData] = useState(initialData);
