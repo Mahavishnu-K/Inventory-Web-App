@@ -6,6 +6,7 @@ import { BiSolidPackage } from "react-icons/bi";
 import { TbArrowsSort } from "react-icons/tb";
 import styles from '@/styles/reports.module.css';
 import ReportTable from "../components/reportTable";
+import Navbar from '../components/navbar'
 
 const Reports = () => {
     const [data, setData] = useState({
@@ -47,76 +48,83 @@ const Reports = () => {
     }, []);
 
     return (
-        <>
-        <div className={styles.reportPage}>
-          <h1 className={styles.title}>Reports</h1>
-          
-          <div className={styles.reports}>
-            <nav>
-              <h3>Inventory Report</h3>
-              <div className={styles.reportContainer}>
-                <div className={styles.reportBox}>
-                  <p>Total Inventory Value</p>
-                  <h2 className={styles.rupee}>
-                    <span><FaRupeeSign size={24} /></span>
-                    {data.totalValue}
-                  </h2>
+      <>
+        <div style={{ display: 'flex' }}>
+          <Navbar/>
+          <div style={{ flex: 1, padding: '20px' }}>
+            <div className="page">
+              <div className={styles.reportPage}>
+                <h1 className={styles.title}>Reports</h1>
+                
+                <div className={styles.reports}>
+                  <nav>
+                    <h3>Inventory Report</h3>
+                    <div className={styles.reportContainer}>
+                      <div className={styles.reportBox}>
+                        <p>Total Inventory Value</p>
+                        <h2 className={styles.rupee}>
+                          <span><FaRupeeSign size={24} /></span>
+                          {data.totalValue}
+                        </h2>
+                      </div>
+                      <div className={styles.reportBox}>
+                        <p>Stock Quantity</p>    
+                        <h2 className={styles.stock}>
+                          <span><BiSolidPackage size={30} /></span>
+                          {data.StockQuantity}
+                        </h2>
+                      </div>
+                    </div>
+                  </nav>
+
+                  <nav className={styles.returnTable}>
+                    <h3>Return Status Report</h3>
+                    <div className={styles.returnReport}>
+                      <table>
+                        <thead>
+                            <tr>
+                                <th>S.No</th>
+                                <th>Item</th>
+                                <th>Return Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {dat.map((row, index) => (
+                                <tr key={row.id}>
+                                    <td>{index + 1}</td>
+                                    <td>{row.item}</td>
+                                    <td className={
+                                      row.status === "Approved" ? styles.approved :
+                                      row.status === "Disapproved" ? styles.disapproved :
+                                      styles.pending
+                                    }>
+                                        {row.status}
+                                    </td>
+                                </tr>
+                            ))}
+                        </tbody>
+                      </table>
+                    </div> 
+                  </nav>
+                </div>   
+
+                <div className={styles.container}>
+                  <div><h3>Purchase Report</h3></div>
+                  <div className={styles.buttonContainer}>
+                      <button className={styles.button}>
+                        Filter by <span className={styles.downArrow}><LuFilter /></span>
+                      </button>
+                      <button className={styles.button}>
+                        Sort by <span className={styles.sortIcon}><TbArrowsSort /></span>
+                      </button>
+                  </div>
                 </div>
-                <div className={styles.reportBox}>
-                  <p>Stock Quantity</p>    
-                  <h2 className={styles.stock}>
-                    <span><BiSolidPackage size={30} /></span>
-                    {data.StockQuantity}
-                  </h2>
+
+                <div className={styles.reportTable}>
+                  <ReportTable/>
                 </div>
               </div>
-            </nav>
-
-            <nav className={styles.returnTable}>
-              <h3>Return Status Report</h3>
-              <div className={styles.returnReport}>
-                <table>
-                  <thead>
-                      <tr>
-                          <th>S.No</th>
-                          <th>Item</th>
-                          <th>Return Status</th>
-                      </tr>
-                  </thead>
-                  <tbody>
-                      {dat.map((row, index) => (
-                          <tr key={row.id}>
-                              <td>{index + 1}</td>
-                              <td>{row.item}</td>
-                              <td className={
-                                row.status === "Approved" ? styles.approved :
-                                row.status === "Disapproved" ? styles.disapproved :
-                                styles.pending
-                              }>
-                                  {row.status}
-                              </td>
-                          </tr>
-                      ))}
-                  </tbody>
-                </table>
-              </div> 
-            </nav>
-          </div>   
-
-          <div className={styles.container}>
-            <div><h3>Purchase Report</h3></div>
-            <div className={styles.buttonContainer}>
-                <button className={styles.button}>
-                  Filter by <span className={styles.downArrow}><LuFilter /></span>
-                </button>
-                <button className={styles.button}>
-                  Sort by <span className={styles.sortIcon}><TbArrowsSort /></span>
-                </button>
             </div>
-          </div>
-
-          <div className={styles.reportTable}>
-            <ReportTable/>
           </div>
         </div>
       </>

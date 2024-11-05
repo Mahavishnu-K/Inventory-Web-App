@@ -1,0 +1,71 @@
+.leaderboard-container {
+    width: 900px;
+    margin-left: 250px;
+    padding: 20px;
+    height: auto;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.leaderboard-title {
+    margin-top: -80px;
+    margin-left: 180px;
+    margin-bottom: 50px;
+    font-size: 1.5em;
+    color: #000000;
+}
+
+.leaderboard-controls {
+    display: flex;
+    margin-left: 250px;
+    gap: 500px;
+    margin-bottom: 20px;
+    
+}
+
+.leaderboard-search, .leaderboard-sort {
+    padding: 8px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    width: 200px;
+    font-size: 1em;
+}
+
+.leaderboard-sort{
+    width: 25%;
+    background-color: #0E2547;
+    color: white;
+}
+
+.leaderboard-table {
+    width: 100%;
+    height: 300px;
+    border-collapse: collapse;
+    border-radius: 10px;
+    overflow: hidden;
+    font-size: 1em;
+    color: #333;
+}
+
+.leaderboard-table th {
+    background-color: rgb(22, 33, 78);
+    color: white;
+    text-align: center;
+    padding: 12px;
+}
+
+.leaderboard-table td, .leaderboard-table th {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+}
+
+.leaderboard-table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.leaderboard-table tr:hover {
+    background-color: #ddd;
+    cursor: pointer;
+}

@@ -31,7 +31,7 @@ function Navbar(){
         <div className="sidebar">
             <div className='text'>
                 <div className="sidebar-content">
-                    <NavLink to="/" className={({ isActive }) => isActive ? "sidebar-item active" : "sidebar-item"}>
+                    <NavLink to="/dashboard" className={({ isActive }) => isActive ? "sidebar-item active" : "sidebar-item"}>
                         <IoHome /> Dashboard
                     </NavLink>
                     <NavLink to="/inventory" className={({ isActive }) => isActive ? "sidebar-item active" : "sidebar-item"}>
