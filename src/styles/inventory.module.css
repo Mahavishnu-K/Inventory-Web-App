@@ -1,3 +1,8 @@
+.page{
+    margin-top: 380px;
+    margin-left: 50px;
+}
+
 .productStatusContainer {
     margin-left: 300px;
     margin-top: -290px;
@@ -81,10 +86,6 @@
     color: white;
     align-items: center;
     cursor: pointer;
-}
-
-.table {
-    margin-left: -300px;
 }
 
 .addIcon {

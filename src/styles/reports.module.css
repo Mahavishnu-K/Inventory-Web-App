@@ -1,3 +1,8 @@
+.page{
+    margin-top: 400px;
+    margin-left: 100px;
+}
+
 .reportPage {
     margin-top: -290px;
     margin-left: 250px;
@@ -84,7 +89,6 @@ tbody tr:nth-child(odd) {
 
 .buttonContainer {
     margin-left: 670px;
-    margin-top: -20px;
     display: flex;
     gap: 20px;
 }
@@ -103,10 +107,13 @@ tbody tr:nth-child(odd) {
 .container {
     display: flex;
     margin-top: 20px;
+    width: 100%;
     align-items: center;
     gap: 10px;
 }
 
 .reportTable{
     margin-top: -10px;
+    width: 100%;
+    margin-left: -40px;
 }

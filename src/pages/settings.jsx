@@ -4,6 +4,7 @@ import AccountSettings from '../components/AccountSettings';
 import NotificationSettings from '../components/NotificationSettings';
 import '@/styles/settings.css';
 
+
 function Settings() {
     return (
         <>
@@ -11,9 +12,9 @@ function Settings() {
                 <Navbar />
                 <div style={{ flex: 1, padding: '20px' }}>
                     <div className="App" style={{ width: '900px'}}>
-                        <h2 style={{ fontWeight: 'bold', marginBottom: '30px', marginTop: '50px', marginLeft: '50px' }}>Settings</h2>
+                        <h2 style={{ fontWeight: 'bold', marginBottom: '30px', marginTop: '20px', marginLeft: '50px' }}>Settings</h2>
                         
-                        <nav className="nav nav-tabs mb-3" style={{ marginLeft: '50px' }}>
+                        <nav className="nav" style={{ marginLeft: '50px' }}>
                             <Link className="nav-link" to="account-settings">Account Settings</Link>
                             <Link className="nav-link" to="notification-settings">Notification Settings</Link>
                         </nav>

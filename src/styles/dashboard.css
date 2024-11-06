@@ -1,0 +1,72 @@
+.dashboard-container {
+    display: flex;
+    flex-direction: column;
+    padding: 10px; /* Reduced padding for smaller container */
+    width: 1000px; /* Smaller fixed width */
+    margin-top: 150px;
+    margin-left: 400px;
+}
+
+.main-content {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+}
+
+.second-card{
+    display: flex;
+    align-items: center;
+}
+
+.first-card{
+    display: flex;
+    align-items: center;
+}
+
+.card {
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 3px 3px 10px gray;
+    padding: 10px; 
+    text-align: center;
+    width: 500px;
+    margin-right: 60px;
+}
+
+.card h3 {
+    font-size: 18px; 
+    color: #000000;
+    margin-bottom: 8px;
+}
+
+.card-item {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px; /* Smaller font size */
+    color: #000000;
+    padding: 3px 0;
+    border-top: 1px solid #eee;
+}
+
+.card-item:first-child {
+    border-top: none;
+}
+
+.chart-container {
+    width: 800px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 3px 3px 20px gray;
+    padding: 10px; /* Reduced padding */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    left: 10px;
+}
+
+.chart-container canvas {
+    width: 700px !important;
+    height: 350px !important; 
+}

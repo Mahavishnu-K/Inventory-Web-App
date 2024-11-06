@@ -1,3 +1,8 @@
+.leaderPage{
+    margin-left: 150px;
+    margin-top: 100px;
+}
+
 .leaderboard-container {
     width: 900px;
     margin-left: 250px;
@@ -33,9 +38,9 @@
 }
 
 .leaderboard-sort{
-    width: 25%;
     background-color: #0E2547;
     color: white;
+    margin-left: 20px;
 }
 
 .leaderboard-table {

@@ -10,6 +10,7 @@ import Dashboard from './pages/dashboard';
 
 function App() {
   return(
+    <div style={{height: "100vh", width: "100vw"}}>
     <Router>
           <Routes>
             <Route path = "/dashboard" element={<Dashboard />} />
@@ -21,6 +22,7 @@ function App() {
             <Route path = "/settings/*" element={<Settings />} />
           </Routes>
     </Router>
+    </div>
   )
 }
 

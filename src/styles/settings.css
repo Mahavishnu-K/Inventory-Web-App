@@ -1,8 +1,15 @@
 .App {
     height: 650px;
     margin-top: 100px;
-    border: 1.5px solid black;
-    justify-content: center;
-    align-items: center;
+    margin-left: 350px;
     border-radius: 8px;
+}
+
+.nav-link{
+    text-decoration: none;
+}
+
+.nav{
+    display: flex;
+    gap: 30px;
 }

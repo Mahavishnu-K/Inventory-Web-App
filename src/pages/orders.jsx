@@ -39,11 +39,11 @@ function Orders(){
     return(
         <>
             <div style={{ display: 'flex' }}>
-                <Navbar/>
-                <div style={{ flex: 1, padding: '20px' }}>
+                <Navbar className={styles.navbar}/>
+                <div style={{ flex: 1, marginTop: "-40px" }}>
                 <div className={styles.appContainer}>
+                <h1 className={styles.title}>Orders</h1>
                     <header className={styles.header}>
-                        <button className={styles.backButton}>←</button>
                         <select className={styles.categorySelect}>
                         <option>Select Product Category</option>
                         {/* Add categories as needed */}
@@ -91,45 +91,80 @@ function Orders(){
                     </div>
 
                     <form className={styles.orderForm}>
-                        <label>
-                        Product:
-                        <input type="text" value={product} onChange={(e) => setProduct(e.target.value)} placeholder="Enter the product" />
-                        </label>
-                        <label>
-                        Quantity:
-                        <input type="number" value={quantity} onChange={(e) => setQuantity(e.target.value)} placeholder="Enter product quantity" />
-                        </label>
-                        <label>
-                        Warehouse Address:
-                        <textarea value={address} onChange={(e) => setAddress(e.target.value)} placeholder="Enter Address"></textarea>
-                        </label>
-                        <div className={styles.paymentSection}>
-                        Payment:
-                        <label>
-                            <input
-                            type="radio"
-                            name="payment"
-                            value="UPI/Card"
-                            checked={paymentMethod === "UPI/Card"}
-                            onChange={() => setPaymentMethod("UPI/Card")}
-                            />
-                            UPI/Card
-                        </label>
-                        <label>
-                            <input
-                            type="radio"
-                            name="payment"
-                            value="Cash on delivery"
-                            checked={paymentMethod === "Cash on delivery"}
-                            onChange={() => setPaymentMethod("Cash on delivery")}
-                            />
-                            Cash on delivery
-                        </label>
-                        </div>
+                            <div className={styles.formGroup}>
+                                <label className={styles.label1}>
+                                    Product
+                                    <h3>:</h3>
+                                    <input
+                                        type="text"
+                                        value={product}
+                                        onChange={(e) => setProduct(e.target.value)}
+                                        placeholder="Enter the product"
+                                        className={styles.input}
+                                    />
+                                    </label>
+                            </div>
+                            
+                            <div className={styles.formGroup}>
+                                <label className={styles.label2}>
+                                Quantity
+                                <h3>:</h3>
+                                <input
+                                    type="number"
+                                    value={quantity}
+                                    onChange={(e) => setQuantity(e.target.value)}
+                                    placeholder="Enter product quantity"
+                                    className={styles.input}
+                                />
+                                </label>
+                            </div>
+                            
+                            <div className={styles.formGroup}>
+                                <label className={styles.label3}>
+                                <p>Warehouse Address</p>
+                                <h3>:</h3>
+                                <textarea
+                                    value={address}
+                                    onChange={(e) => setAddress(e.target.value)}
+                                    placeholder="Enter Address"
+                                    className={styles.textarea}
+                                />
+                                </label>
+                            </div>
+                            
+                            <div className={styles.paymentSection}>
+                                <p>Payment</p>
+                                <h3>:</h3>
+                                <div className={styles.paymentOptions}>
+                                    <label>
+                                    <input
+                                        type="radio"
+                                        name="payment"
+                                        value="UPI/Card"
+                                        checked={paymentMethod === "UPI/Card"}
+                                        onChange={() => setPaymentMethod("UPI/Card")}
+                                    />
+                                    UPI/Card
+                                    </label>
+                                    <label>
+                                    <input
+                                        type="radio"
+                                        name="payment"
+                                        value="Cash on delivery"
+                                        checked={paymentMethod === "Cash on delivery"}
+                                        onChange={() => setPaymentMethod("Cash on delivery")}
+                                    />
+                                    Cash on delivery
+                                    </label>
+                                    {paymentMethod === "UPI/Card" && (
+                                        <button type="submit" className={styles.proceedButton}>Proceed</button>
+                                    )}
+                                </div>
+                            </div>
                         <div className={styles.formButtons}>
                         <button type="button" className={styles.cancelButton}>Cancel</button>
                         <button type="button" className={styles.placeOrderButton}>Place order</button>
-                        <button type="submit" className={styles.proceedButton}>Proceed</button>
+
                         </div>
                     </form>
                     </div>

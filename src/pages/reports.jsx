@@ -52,7 +52,7 @@ const Reports = () => {
         <div style={{ display: 'flex' }}>
           <Navbar/>
           <div style={{ flex: 1, padding: '20px' }}>
-            <div className="page">
+            <div className={styles.page}>
               <div className={styles.reportPage}>
                 <h1 className={styles.title}>Reports</h1>
                 
