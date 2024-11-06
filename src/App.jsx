@@ -18,7 +18,7 @@ function App() {
             <Route path = "/suppliers" element={<Suppliers />} />
             <Route path = "/orders" element={<Orders />} />
             <Route path = "/leaderboard" element={<Leaderboard />} />
-            <Route path = "/settings" element={<Settings />} />
+            <Route path = "/settings/*" element={<Settings />} />
           </Routes>
     </Router>
   )

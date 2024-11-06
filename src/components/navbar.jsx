@@ -5,6 +5,7 @@ import { IoIosNotificationsOutline } from "react-icons/io";
 import { CgProfile } from "react-icons/cg";
 import { NavLink } from 'react-router-dom';
 import { FaBoxes, FaChartLine, FaUsers, FaShoppingCart, FaTrophy, FaCog } from 'react-icons/fa';
+import inventoryIcon from '@/assets/inventoryIcon.svg'
 
 function Navbar(){
     return(
@@ -28,7 +29,10 @@ function Navbar(){
             </div>
         </div>
 
+        
+
         <div className="sidebar">
+        <img className="Inventory-Icon" src={inventoryIcon} alt="Icon" style={{width:'240px'}} />
             <div className='text'>
                 <div className="sidebar-content">
                     <NavLink to="/dashboard" className={({ isActive }) => isActive ? "sidebar-item active" : "sidebar-item"}>

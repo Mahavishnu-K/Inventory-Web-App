@@ -1,23 +1,23 @@
-import '@/styles/inventory.css'
-import { FaPlus } from "react-icons/fa";
-import { LuFilter } from "react-icons/lu";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { FaPlus } from "react-icons/fa";
+import { LuFilter } from "react-icons/lu";
 import InventoryTable from '../components/inventoryTable';
-import Navbar from '../components/navbar'
+import Navbar from '../components/navbar';
+import styles from '@/styles/inventory.module.css'; 
 
 const Inventory = () => {
   const [data, setData] = useState({
     totalProducts: 0,
     outOfStock: 0,
     inStock: 0,
-  })
+  });
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get("")
-        setData(response.data)
+        const response = await axios.get("");
+        setData(response.data);
         
         const mockData = {
           totalProducts: 100,
@@ -29,66 +29,63 @@ const Inventory = () => {
           setData(mockData);
         }, 500);
       } catch (error) {
-        console.error("Error fetching product data:", error)
+        console.error("Error fetching product data:", error);
       }
-    }
-    fetchData()
-  }, [])
+    };
+    fetchData();
+  }, []);
 
   return (
     <>
       <div style={{ display: 'flex' }}>
-        <Navbar/>
+        <Navbar />
         <div style={{ flex: 1, padding: '20px' }}>
-          <div className = 'page'>
-            <div className="product-status-container">
-              <h1 className="title">Products</h1>
-              <div className="status-container">
-                <div className="status-box">
+          <div className={styles.page}>
+            <div className={styles.productStatusContainer}>
+              <h1 className={styles.title}>Products</h1>
+              <div className={styles.statusContainer}>
+                <div className={styles.statusBox}>
                   <p>Total Products</p>
                   <h2>{data.totalProducts}</h2>
                 </div>
-                <div className="line"></div>
-                <div className="status-box out-of-stock">
+                <div className={styles.line}></div>
+                <div className={`${styles.statusBox} ${styles.outOfStock}`}>
                   <p>Out of Stock</p>
                   <h2>{data.outOfStock}</h2>
                 </div>
-                <div className="line"></div>
-                <div className="status-box in-stock">
+                <div className={styles.line}></div>
+                <div className={`${styles.statusBox} ${styles.inStock}`}>
                   <p>In Stock</p>
                   <h2>{data.inStock}</h2>
                 </div>
               </div>
-                      
-              <div className="container">
+              
+              <div className={styles.container}>
                 <input
                   type="text"
                   placeholder="Search Products..."
-                  className="search-input"
+                  className={styles.searchInput}
                 />
-                <div className='button-container'>
-                    <button className="button">
-                      Filter by <span className="dropdown-arrow"><LuFilter /></span>
-                    </button>
+                <div className={styles.buttonContainer}>
+                  <button className={styles.button}>
+                    Filter by <span className={styles.dropdownArrow}><LuFilter /></span>
+                  </button>
 
-                    <button className="button">
-                      Add Items <span className="add-icon"><FaPlus /></span>
-                    </button>
+                  <button className={styles.button}>
+                    Add Items <span className={styles.addIcon}><FaPlus /></span>
+                  </button>
                 </div>
               </div>
 
-              <div className='table'>
-                <InventoryTable/>
+              <div className={styles.table}>
+                <InventoryTable />
               </div>
-
             </div>
           </div>
         </div>
       </div>
     </>
-  )
+  );
+};
 
-}
-
-
-export default Inventory
+export default Inventory;

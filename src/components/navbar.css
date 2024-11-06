@@ -9,6 +9,11 @@
     width: 100%;
 }
 
+.Inventory-Icon{
+    margin-top: 7px;
+    margin-left: 20px;
+}
+
 .content {
     display: flex;
     margin-left: 350px;
@@ -58,7 +63,7 @@
 }
 
 .text{
-    margin-top: 50%;
+  margin-top: 20px;
     margin-left: 20%;
     color: white;
 }
@@ -98,13 +103,13 @@
   }
   
   .sidebar-item.settings {
-    margin-top: 220px;
+    margin-top: 180px;
     color: #ffffff;
     padding: 10px 15px;
   }
 
   .sidebar-item.settings.active{
-    margin-top: 220px;
+    margin-top: 180px;
     background-color: #ffffff;
     color: #0d1b2a;
     font-weight: 750;
