@@ -4,7 +4,8 @@ import { FaPlus } from "react-icons/fa";
 import { LuFilter } from "react-icons/lu";
 import InventoryTable from '../components/inventoryTable';
 import Navbar from '../components/navbar';
-import styles from '@/styles/inventory.module.css'; 
+import { AddNewItem } from '../components/additems';
+import styles from '@/styles/inventory.module.css';
 
 const Inventory = () => {
   const [data, setData] = useState({
@@ -12,6 +13,8 @@ const Inventory = () => {
     outOfStock: 0,
     inStock: 0,
   });
+  
+  const [showOverlay, setShowOverlay] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -24,7 +27,7 @@ const Inventory = () => {
           outOfStock: 25,
           inStock: 75,
         };
-
+        
         setTimeout(() => {
           setData(mockData);
         }, 500);
@@ -35,11 +38,13 @@ const Inventory = () => {
     fetchData();
   }, []);
 
+  const toggleOverlay = () => setShowOverlay(!showOverlay);
+
   return (
     <>
       <div style={{ display: 'flex' }}>
         <Navbar />
-        <div style={{ flex: 1, padding: '20px' }}>
+        <div style={{ flex: 1, padding: '20px' }} className={showOverlay ? styles.blurBackground : ''}>
           <div className={styles.page}>
             <div className={styles.productStatusContainer}>
               <h1 className={styles.title}>Products</h1>
@@ -71,7 +76,7 @@ const Inventory = () => {
                     Filter by <span className={styles.dropdownArrow}><LuFilter /></span>
                   </button>
 
-                  <button className={styles.button}>
+                  <button className={styles.button} onClick={toggleOverlay}>
                     Add Items <span className={styles.addIcon}><FaPlus /></span>
                   </button>
                 </div>
@@ -84,6 +89,11 @@ const Inventory = () => {
           </div>
         </div>
       </div>
+      
+        
+      <AddNewItem isOpen={showOverlay} onClose={() => setShowOverlay(!showOverlay)} />
+          
+
     </>
   );
 };

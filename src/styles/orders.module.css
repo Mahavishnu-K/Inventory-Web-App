@@ -79,6 +79,22 @@ text-align: center;
 border-bottom: 1px solid #ddd;
 }
 
+.supplierTable td {
+  text-align: center;
+  padding: 12px;
+  border-bottom: 1px solid #aebbe2;
+  
+}
+
+.supplierTable th {
+  padding: 12px;
+  background-color: #e0e7f5;
+  color: #0E2547;
+  font-weight: bold;
+  position: sticky;
+  top: 0; 
+}
+
 .selectButton {
 background-color: #00cc44;
 color: white;

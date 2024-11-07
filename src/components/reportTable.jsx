@@ -38,6 +38,7 @@ const ReportTable = () => {
                             <th>Expected Delivery Date</th>
                         </tr>
                     </thead>
+                    
                     <tbody>
                         {orders.map((order, index) => (
                             <tr key={order.id}>

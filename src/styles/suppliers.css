@@ -1,8 +1,102 @@
-.container {
-    margin-left: 200px;
+.container{
+    margin-left: 330px;
+    margin-top: 100px;
 }
 
-.supplier-title{
-    margin-top: -240px;
-    margin-left: 180px;
+.addButton{
+    display: flex;
+    gap: 8px;
+    font-size: medium;
+    align-items: center;
+    justify-content: center;
+    background-color: #0E2547;
+    border: none;
+    padding: 10px 12px;
+    color: white;
+    border-radius: 10px;
 }
+
+.actionButton-export{
+    font-size: medium;
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    justify-content: center;
+    background-color: #0E2547;
+    border: none;
+    padding: 10px 12px;
+    color: white;
+    border-radius: 10px;
+}
+
+.actionButton-print{
+    font-size: medium;
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    justify-content: center;
+    background-color: #0E2547;
+    border: none;
+    padding: 10px 12px;
+    color: white;
+    border-radius: 10px;
+}
+
+.filterButton{
+    font-size: medium;
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    justify-content: center;
+    background-color: #0E2547;
+    border: none;
+    padding: 10px 12px;
+    color: white;
+    border-radius: 10px;
+}
+
+.buttons{
+    display: flex;
+    gap: 650px;
+}
+
+.rightControls{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.tableContainer {
+    width: 1100px;
+    margin-top: 30px;
+    margin-left: 20px;
+    border: 1px solid #e0e0e0;
+    border-radius: 5px;
+    overflow: hidden;
+  }
+  
+  .tableScrollable table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  .tableScrollable {
+    height: 500px; 
+    overflow-y: auto;
+  }
+  
+  .tableScrollable td {
+    text-align: center;
+    padding: 12px;
+    border-bottom: 1px solid #aebbe2;
+    
+  }
+  
+  .tableScrollable th {
+    padding: 12px;
+    background-color: #e0e7f5;
+    color: #0E2547;
+    font-weight: bold;
+    position: sticky;
+    top: 0; 
+  }

@@ -1,11 +1,14 @@
 .tableContainer {
-    padding: 20px;
-    width: 100%;
-    margin-left: -20px;
+    width: 1070px;
+    margin-top: 20px;
+    margin-left: 40px;
+    border: 1px solid #e0e0e0;
+    border-radius: 5px;
+    overflow: hidden;
 }
 
 .tableWrapper {
-    max-height: 300px; 
+    height: 300px; 
     overflow-y: auto;
     border: 1px solid #ddd;
     border-radius: 8px;
@@ -23,10 +26,26 @@
     font-size: 16px;
 }
 
+.orderTable th{
+    padding: 12px;
+    background-color: #e0e7f5;
+    color: #0E2547;
+    font-weight: bold;
+    position: sticky;
+    top: 0; 
+}
+
+.orderTable td {
+    text-align: center;
+    padding: 12px;
+    border-bottom: 1px solid #aebbe2;
+}
+
 .orderTable th {
     background-color: #e0e7f5;
     color: #0E2547;
     font-weight: 600;
+    position: sticky;
 }
 
 .orderTable tbody tr:nth-child(odd) {

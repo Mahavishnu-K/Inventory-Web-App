@@ -1,0 +1,111 @@
+.overlayBackground{
+    background-color: rgba(0,0,0,0.5);
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    cursor: pointer;
+    z-index: 9;
+}
+
+.overlayContainer{
+    background-color: white;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    position: fixed;
+    margin: auto;
+    padding: 50px;
+    padding-top: 10px;
+    width: 750px;
+    border-radius: 20px;
+    height: 680px;
+    z-index: 10;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+}
+
+.row {
+    display: flex;
+    gap: 40px;
+    margin-bottom: 15px;
+}
+
+.formGroup {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+label {
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.required {
+    color: red;
+}
+
+.input, .textarea, select {
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%;
+    box-sizing: border-box;
+    outline: none;
+}
+
+.input:focus, .textarea:focus, select:focus {
+    border-color: #555;
+}
+
+.textarea {
+    resize: none;
+    height: 80px;
+}
+
+.buttons {
+    display: flex;
+    gap: 50px;
+    margin-top: 20px;
+    margin-left: 35%;
+}
+
+.cancelButton, .addButton {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+.cancelButton {
+    background-color: #d6e2ea;
+    color: #000000;
+    border-radius: 10px;
+    font-weight: 600;
+}
+
+.addButton {
+    background-color: #0E2547;
+    color: #ffffff;
+    border-radius: 10px;
+    font-weight: 600;
+}
+
+.cancelButton:hover {
+    background-color: #ddd;
+}
+
+.addButton:hover {
+    background-color: #091730;
+}
+
+
+

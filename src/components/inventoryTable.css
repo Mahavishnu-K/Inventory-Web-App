@@ -6,7 +6,7 @@
     overflow: hidden;
   }
   
-  table {
+  .table-scrollable table {
     width: 100%;
     border-collapse: collapse;
   }
@@ -16,20 +16,20 @@
     overflow-y: auto;
   }
   
-  td {
+  .table-scrollable td {
     text-align: center;
     padding: 12px;
     border-bottom: 1px solid #aebbe2;
     
   }
   
-  th {
+  .table-scrollable th {
     padding: 12px;
-    background-color: #aebbe2;
+    background-color: #e0e7f5;
+    color: #0E2547;
     font-weight: bold;
     position: sticky;
     top: 0; 
-    z-index: 1;
   }
   
   .in-stock {
