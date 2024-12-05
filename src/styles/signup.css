@@ -1,10 +1,42 @@
+.page{
+    height: 100vh; 
+    width: 100vw;
+    position: relative;
+    overflow: hidden;
+}
+
+.wave {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+}
+
+.wave svg {
+    position: relative;
+    display: block;
+    width: calc(180% + 1.3px);
+    height: 500px;
+    transform: rotateY(180deg);
+}
+
+.wave .shape-fill {
+    fill: #0E2547;
+}
+
+
 .login-card{
     display: flex;
     background: white;
     border-radius: 8px;
     box-shadow: 3px 3px 20px gray;
-    overflow: hidden;
-    width: auto;
+    width: 850px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .form-container{
@@ -15,6 +47,8 @@
 .text{
     margin-left: 8%;
     margin-top: 8px;
+    color: black;
+    margin-bottom: 20px;
 }
 
 .text h2{
@@ -34,37 +68,52 @@
 }
 
 .form-group{
-    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column; 
+    align-items: flex-start;
 }
 
-label{
-    display: inline;
+div.form-group .signup-label {
     margin-left: 8%;
     margin-bottom: 5px;
-    font-weight: 370;
+    width: 100%;
+    font-size: medium;
+    font-weight: 490;
 }
 
-input, select{
+div.form-group .signup-label::after {
+    content: none;
+}
+
+div.form-group .signup-input {
     width: 100%;
     padding: 10px;
-    border: 1px solid #ccc;
-    margin-left: 8%;
+    border: 1px solid #a6a0a0;
     border-radius: 10px;
 }
 
-button{
-    width: 107%;
-    padding: 10px 15px;
+div.form-group .signup-select {
+    padding: 10px;
+    border: 1px solid #a6a0a0;
+    width: 105%;
+    border-radius: 10px;
+}
+
+.submit-button {
+    width: 106%;
+    padding: 12px 15px;
     background-color: #0E2547;
     color: white;
     border: none;
-    margin-left: 8%;
+    margin-left: 5%;
+    margin-top: 10px;
     border-radius: 20px;
     cursor: pointer;
 }
 
 .image-container{
-    padding-top: 70px;
+    display: flex;
+    align-items: center;
 }
 
 .login-link{
@@ -74,10 +123,7 @@ button{
 }
 
 .login-link a{
-    margin-left: 30%;
+    margin-left: 34%;
+    text-decoration: none;
     margin-top: 15px;
-}
-
-#user-role{
-    width: 106%;
 }

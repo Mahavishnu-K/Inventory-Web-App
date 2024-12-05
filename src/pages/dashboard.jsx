@@ -16,7 +16,7 @@ import {
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
 
 const Dashboard = () => {
-  // Mock data for backend response
+  
   const data = {
     salesOverview: {
       revenue: "₹ 18,300",
@@ -54,6 +54,7 @@ const Dashboard = () => {
         label: "Profit",
         data: [2000, 8000, 15000, 5000, 3000, 12000, 7000, 9000, 4000, 10000, 3000, 5000],
         backgroundColor: "#D91189",
+
       },
     ],
   };
@@ -61,95 +62,127 @@ const Dashboard = () => {
   const options = {
     responsive: true,
     plugins: {
-      legend: { position: "top" },
-      title: { display: true, text: "Revenue and Profit" },
+      legend: {
+        position: "top",
+        labels: {
+          color: "black", 
+          font: {
+            size: 14,
+          },
+        },
+      },
+    },
+    scales: {
+      x: {
+        ticks: {
+          color: "black",
+        },
+      },
+      y: {
+        ticks: {
+          color: "black", 
+        },
+      },
     },
   };
 
   return (
     <>
-      <Navbar />
-      <div className="dashboard-container">
-        <div className="main-content">
-            <div className="first-card">
-                {/* Sales Overview Card */}
-                <div className="card">
-                <h3>Sales Overview</h3>
-                <div className="card-item">
-                    <span>Revenue</span>
-                    <span>{data.salesOverview.revenue}</span>
-                </div>
-                <div className="card-item">
-                    <span>Profit</span>
-                    <span>{data.salesOverview.profit}</span>
-                </div>
-                <div className="card-item">
-                    <span>Cost</span>
-                    <span>{data.salesOverview.cost}</span>
-                </div>
-                </div>
+      <div style={{ display: 'flex' }}>
+        <Navbar />
+        <div className="dashboard-container" style={{ flex: 1, padding: '20px' }}>
+          <div className="main-content">
+              <div className="first-card">
+                  {/* Sales Overview Card */}
+                  <div className="card">
+                    <h3>Sales Overview</h3>
+                    <nav className="data-container">
+                      <div className="card-item">
+                          <p>Revenue</p>
+                          <p>{data.salesOverview.revenue}</p>
+                      </div>
+                      <div className="card-item">
+                          <p>Profit</p>
+                          <p>{data.salesOverview.profit}</p>
+                      </div>
+                      <div className="card-item">
+                          <p>Cost</p>
+                          <p>{data.salesOverview.cost}</p>
+                      </div>
+                    </nav>
+                  </div>
 
-                {/* Inventory Summary Card */}
-                <div className="card">
-                <h3>Inventory Summary</h3>
-                <div className="card-item">
-                    <span>Quantity in Hand</span>
-                    <span>{data.inventorySummary.quantityInHand}</span>
-                </div>
-                <div className="card-item">
-                    <span>To be Received</span>
-                    <span>{data.inventorySummary.toBeReceived}</span>
-                </div>
-                </div>
+                  {/* Inventory Summary Card */}
+                  <div className="card">
+                    <h3>Inventory Summary</h3>
+                    <nav className="data-container">
+                      <div className="card-item">
+                          <p>Quantity in Hand</p>
+                          <p>{data.inventorySummary.quantityInHand}</p>
+                      </div>
+                      <div className="card-item">
+                          <p>To be Received</p>
+                          <p>{data.inventorySummary.toBeReceived}</p>
+                      </div>
+                    </nav>
+                  </div>
 
-                {/* Today Sales Card */}
-                <div className="card">
-                <h3>Today Sales</h3>
-                <div className="card-item">
-                    <span>Sales</span>
-                    <span>{data.todaySales.sales}</span>
-                </div>
-                </div>
+                  {/* Today Sales Card */}
+                  <div className="card">
+                    <h3>Today Sales</h3>
+                    <nav className="data-container">
+                      <div className="card-item">
+                          <p>Sales</p>
+                          <p>{data.todaySales.sales}</p>
+                      </div>
+                    </nav>
+                  </div>
+              </div>
+
+              <div className="second-card">
+                  {/* Purchase Overview Card */}
+                  <div className="card">
+                      <h3>Purchase Overview</h3>
+                      <nav className="data-container">
+                        <div className="card-item">
+                            <p>Purchase</p>
+                            <p>{data.purchaseOverview.purchase}</p>
+                        </div>
+                        <div className="card-item">
+                            <p>Cost</p>
+                            <p>{data.purchaseOverview.cost}</p>
+                        </div>
+                        <div className="card-item">
+                            <p>Cancel</p>
+                            <p>{data.purchaseOverview.cancel}</p>
+                        </div>
+                        <div className="card-item">
+                            <p>Return</p>
+                            <p>{data.purchaseOverview.return}</p>
+                        </div>
+                      </nav>
+                  </div>
+
+                  {/* Product Summary Card */}
+                  <div className="card">
+                      <h3>Product Summary</h3>
+                      <nav className="data-container">
+                        <div className="card-item">
+                            <p>Number of Suppliers</p>
+                            <p>{data.productSummary.numberOfSuppliers}</p>
+                        </div>
+                        <div className="card-item">
+                            <p>Number of Categories</p>
+                            <p>{data.productSummary.numberOfCategories}</p>
+                        </div>
+                      </nav>
+                  </div>
+              </div>
+
+            <div className="chart-container">
+              <h3>Revenue and Profit</h3>
+              <Bar options={options} data={chartData} />
             </div>
-
-            <div className="second-card">
-                {/* Purchase Overview Card */}
-                <div className="card">
-                    <h3>Purchase Overview</h3>
-                    <div className="card-item">
-                        <span>Purchase</span>
-                        <span>{data.purchaseOverview.purchase}</span>
-                    </div>
-                    <div className="card-item">
-                        <span>Cost</span>
-                        <span>{data.purchaseOverview.cost}</span>
-                    </div>
-                    <div className="card-item">
-                        <span>Cancel</span>
-                        <span>{data.purchaseOverview.cancel}</span>
-                    </div>
-                    <div className="card-item">
-                        <span>Return</span>
-                        <span>{data.purchaseOverview.return}</span>
-                    </div>
-                </div>
-
-                {/* Product Summary Card */}
-                <div className="card">
-                    <h3>Product Summary</h3>
-                    <div className="card-item">
-                        <span>Number of Suppliers</span>
-                        <span>{data.productSummary.numberOfSuppliers}</span>
-                    </div>
-                    <div className="card-item">
-                        <span>Number of Categories</span>
-                        <span>{data.productSummary.numberOfCategories}</span>
-                    </div>
-                </div>
-            </div>
-
-          <div className="chart-container">
-            <Bar options={options} data={chartData} />
           </div>
         </div>
       </div>

@@ -1,52 +1,54 @@
 .dashboard-container {
     display: flex;
     flex-direction: column;
-    padding: 10px; /* Reduced padding for smaller container */
-    width: 1000px; /* Smaller fixed width */
-    margin-top: 150px;
-    margin-left: 400px;
+    padding: 10px; 
+    margin-top: 95px;
+    margin-left: 390px;
 }
 
 .main-content {
     display: flex;
     flex-direction: column;
-    gap: 10px;
-    width: 100%;
+    gap: 20px;
 }
 
 .second-card{
     display: flex;
-    align-items: center;
+    gap: 120px;
 }
 
 .first-card{
     display: flex;
-    align-items: center;
+    gap: 60px;
 }
 
 .card {
     background-color: #ffffff;
     border-radius: 10px;
-    box-shadow: 3px 3px 10px gray;
-    padding: 10px; 
+    box-shadow: 0px 0px 15px gray;
+    padding: 0px 40px 0px 40px; 
     text-align: center;
-    width: 500px;
-    margin-right: 60px;
 }
 
 .card h3 {
     font-size: 18px; 
     color: #000000;
+    display: flex;
     margin-bottom: 8px;
 }
 
 .card-item {
-    display: flex;
-    justify-content: space-between;
-    font-size: 14px; /* Smaller font size */
+    font-size: 14px;
     color: #000000;
     padding: 3px 0;
     border-top: 1px solid #eee;
+}
+
+.data-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 60px;
 }
 
 .card-item:first-child {
@@ -54,19 +56,18 @@
 }
 
 .chart-container {
-    width: 800px;
+    width: 950px;
     background-color: #ffffff;
     border-radius: 8px;
-    box-shadow: 3px 3px 20px gray;
-    padding: 10px; /* Reduced padding */
+    box-shadow: 0px 0px 15px gray;
+    padding: 0px 20px 15px 20px; 
     display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
+    flex-direction: column;
     left: 10px;
 }
 
 .chart-container canvas {
-    width: 700px !important;
-    height: 350px !important; 
+    margin-left: 60px;
+    width: 800px !important;
+    height: 310px !important; 
 }

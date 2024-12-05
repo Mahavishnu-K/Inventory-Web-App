@@ -1,6 +1,8 @@
 import Navbar from "../components/navbar";
 import React, { useState, useEffect } from "react";
+import { Link, Route, Routes, Navigate } from 'react-router-dom';
 import styles from "@/styles/orders.module.css";
+
 
 function Orders(){
 
@@ -49,8 +51,8 @@ function Orders(){
                         {/* Add categories as needed */}
                         </select>
                         <div className={styles.actionButton}>
-                            <button >Track Shipments</button>
-                            <button >Request Return</button>
+                            <Link to="track-page"><button >Track Shipments</button></Link>
+                            <Link to="/return-page"><button >Request Return</button></Link>
                         </div>
                     </header>
 

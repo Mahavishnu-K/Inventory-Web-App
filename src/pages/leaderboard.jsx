@@ -17,7 +17,7 @@ const Leaderboard = () => {
     ];
 
     const [searchTerm, setSearchTerm] = useState('');
-    const [sortOrder, setSortOrder] = useState(''); // Default to descending order
+    const [sortOrder, setSortOrder] = useState(''); 
 
     const handleSearchChange = (e) => {
         setSearchTerm(e.target.value);
@@ -27,7 +27,6 @@ const Leaderboard = () => {
         setSortOrder(e.target.value);
     };
 
-    // Sort data based on trust points and assign positions to each supplier
     const sortedDataWithPosition = initialData
         .sort((a, b) => 
             sortOrder === 'asc' ? a.trustPoints - b.trustPoints : b.trustPoints - a.trustPoints
@@ -37,7 +36,6 @@ const Leaderboard = () => {
             position: sortOrder === 'asc' ? initialData.length - index : index + 1,
         }));
 
-    // Filter the sorted data based on the search term
     const filteredData = sortedDataWithPosition.filter(entry => 
         entry.supplierName.toLowerCase().includes(searchTerm.toLowerCase())
     );
@@ -80,6 +78,7 @@ const Leaderboard = () => {
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    
                                     {filteredData.map((entry, index) => (
                                         <tr key={index}>
                                             <td>{index + 1}</td>

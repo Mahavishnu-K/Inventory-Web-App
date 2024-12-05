@@ -5,6 +5,7 @@ import NotificationSettings from '../components/NotificationSettings';
 import '@/styles/settings.css';
 
 
+
 function Settings() {
     return (
         <>
