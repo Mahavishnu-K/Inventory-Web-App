@@ -9,13 +9,15 @@ import Leaderboard from './pages/leaderboard';
 import Dashboard from './pages/dashboard';
 import RequestReturn from './pages/returnpage';
 import SignupPage from './pages/signup';
-
+import LoginPage from './pages/login';
 
 function App() {
   return(
     <div style={{height: "100vh", width: "100vw"}}>
     <Router>
           <Routes>
+            <Route path="/" element={<LoginPage />} />
+            <Route path="/login" element={<LoginPage />} />
             <Route path='/signup' element={<SignupPage />} />
             <Route path = "/dashboard" element={<Dashboard />} />
             <Route path = "/inventory" element={<Inventory />} />

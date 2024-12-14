@@ -48,7 +48,6 @@ function Orders(){
                     <header className={styles.header}>
                         <select className={styles.categorySelect}>
                         <option>Select Product Category</option>
-                        {/* Add categories as needed */}
                         </select>
                         <div className={styles.actionButton}>
                             <Link to="track-page"><button >Track Shipments</button></Link>
@@ -107,6 +106,7 @@ function Orders(){
                                     </label>
                             </div>
                             
+
                             <div className={styles.formGroup}>
                                 <label className={styles.label2}>
                                 Quantity
@@ -123,14 +123,14 @@ function Orders(){
                             
                             <div className={styles.formGroup}>
                                 <label className={styles.label3}>
-                                <p>Warehouse Address</p>
-                                <h3>:</h3>
-                                <textarea
-                                    value={address}
-                                    onChange={(e) => setAddress(e.target.value)}
-                                    placeholder="Enter Address"
-                                    className={styles.textarea}
-                                />
+                                    <p>Warehouse Address</p>
+                                    <h3>:</h3>
+                                    <textarea
+                                        value={address}
+                                        onChange={(e) => setAddress(e.target.value)}
+                                        placeholder="Enter Address"
+                                        className={styles.textarea}
+                                    />
                                 </label>
                             </div>
                             
