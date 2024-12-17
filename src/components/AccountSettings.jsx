@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { useDropzone } from 'react-dropzone';
 import '@/components/AccountSettings.css';
@@ -32,6 +31,7 @@ const AccountSettings = () => {
             [name]: value,
         }));
     };
+
 
     const handleUpload = () => {
         alert('Profile picture uploaded!');
@@ -89,32 +89,32 @@ const AccountSettings = () => {
                 </div>
             </div>
 
-            <div className="input-field">
+            <div id="input-field">
                 <label>Username:</label>
                 <input type="text" name="username" value={accountSettings.username} onChange={handleAccountChange} />
             </div>
 
-            <div className="input-field">
+            <div id="input-field">
                 <label>Full Name:</label>
                 <input type="text" name="fullName" value={accountSettings.fullName} onChange={handleAccountChange} />
             </div>
 
-            <div className="input-field">
+            <div id="input-field">
                 <label>Email:</label>
                 <input type="email" name="email" value={accountSettings.email} onChange={handleAccountChange} />
             </div>
 
-            <div className="input-field">
+            <div id="input-field">
                 <label>Phone Number:</label>
                 <input type="tel" name="phone" value={accountSettings.phone} onChange={handleAccountChange} />
             </div>
 
-            <div className="input-field">
+            <div id="input-field">
                 <label>Bio:</label>
                 <textarea name="bio" value={accountSettings.bio} onChange={handleAccountChange} />
             </div>
 
-            <div className="input-field">
+            <div id="input-field">
                 <label>Warehouse Address:</label>
                 <textarea name="warehouseAddress" value={accountSettings.warehouseAddress} onChange={handleAccountChange} />
             </div>

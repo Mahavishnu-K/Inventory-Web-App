@@ -40,6 +40,7 @@ const Inventory = () => {
 
   const toggleOverlay = () => setShowOverlay(!showOverlay);
 
+  
   return (
     <>
       <div style={{ display: 'flex' }}>

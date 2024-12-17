@@ -4,15 +4,13 @@ import AccountSettings from '../components/AccountSettings';
 import NotificationSettings from '../components/NotificationSettings';
 import '@/styles/settings.css';
 
-
-
 function Settings() {
     return (
         <>
-            <div style={{ display: 'flex' }}>
+            <div style={{ display: 'flex', width: '100%' }}>
                 <Navbar />
                 <div style={{ flex: 1, padding: '20px' }}>
-                    <div className="App" style={{ width: '900px'}}>
+                    <div className="App">
                         <h2 style={{ fontWeight: 'bold', marginBottom: '30px', marginTop: '20px', marginLeft: '50px' }}>Settings</h2>
                         
                         <nav className="nav" style={{ marginLeft: '50px' }}>

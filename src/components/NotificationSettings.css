@@ -1,6 +1,7 @@
 .notification-settings-container {
     padding: 20px;
     margin-left: 50px;
+    width: 800px;
 }
 
 .notification-settings-title {
@@ -8,6 +9,7 @@
     font-weight: bold;
     margin-bottom: 20px;
 }
+
 
 .form-switch {
     display: flex;

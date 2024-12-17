@@ -10,7 +10,6 @@
     margin-bottom: 20px;
 }
 
-
 .dropzone-container {
     display: flex;
     align-items: center;
@@ -46,6 +45,7 @@
     justify-content: center;
 
 }
+
 .button-container .one{
         background-color:#0E2547;
         width:90px;
@@ -54,6 +54,7 @@
         border-radius: 10px;
         color:#e0e0e0
 }
+
 .button-container .two{
     width:90px;
     height:35px;
@@ -61,8 +62,8 @@
     border-radius: 10px;
 }
 
-.input-field {
-    display: inline-flex;
+#input-field {
+    display: flex;
     flex-direction: column;
     margin-bottom: 15px;
     margin-right: 50px;
@@ -70,13 +71,13 @@
 
 }
 
-.input-field label {
+#input-field label {
     margin-bottom: 5px;
     font-weight: bold;
 }
 
-.input-field input,
-.input-field textarea {
+#input-field input,
+#input-field textarea {
     padding: 8px;
     border: 1px solid #ccc;
     border-radius: 4px;

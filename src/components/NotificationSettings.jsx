@@ -10,6 +10,7 @@ const NotificationSettings = () => {
         userAccessAlerts: false,
     });
 
+    
     const handleNotificationToggle = (e) => {
         const { name, checked } = e.target;
         setNotifications((prevState) => ({
