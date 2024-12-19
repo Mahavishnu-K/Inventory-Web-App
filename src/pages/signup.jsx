@@ -1,12 +1,53 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import axios from 'axios';
 import '@/styles/signup.css';
 import Signupimg from '@/assets/SignupIcon.svg';
 
 function SignupPage() {
+    const [email, setEmail] = useState('');
+    const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
+    const [confirmpassword, setConfirmPassword] = useState('');
+    const [role, setRole] = useState('');
+    const navigate = useNavigate();
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+
+        if (password !== confirmpassword) {
+            alert("Passwords do not match");
+            return;
+        }
+
+        try {
+            console.log({ email, username, role, password, confirmpassword });
+
+            const response = await axios.post('http://localhost:5000/api/signup', {
+                email,
+                username,
+                role,
+                password,
+            });
+
+            console.log(response.data);
+            alert("Registration successful!");
+            navigate('/login'); 
+        } catch (err) {
+            console.error(err.response?.data || err.message);
+
+            if (err.response?.data?.error === "User already exists with this email") {
+                alert("A user with this email already exists. Please log in or use a different email.");
+            } else if (err.response?.data?.error === "Passwords do not match") {
+                alert("Passwords do not match. Please try again.");
+            } else {
+                alert("Registration failed. Please try again.");
+            }
+        }
+    };
+
     return (
         <div className='page'>
-            {/* SVG Wave */}
             <div className="wave">
                 <svg
                     data-name="Layer 1"
@@ -21,16 +62,15 @@ function SignupPage() {
                 </svg>
             </div>
 
-            {/* Signup Card */}
             <div className='login-card'>
                 <div className='form-container'>
                     <div className='text'>
-                        <p id='p1'>Welcome !</p>
+                        <p id='p1'>Welcome!</p>
                         <h2>Sign up to</h2>
                         <p>your account</p>
                     </div>
 
-                    <form>
+                    <form onSubmit={handleSubmit}>
                         <div className='form-group'>
                             <label className='signup-label' htmlFor="email">Email</label>
                             <input
@@ -39,6 +79,7 @@ function SignupPage() {
                                 placeholder="Enter your email"
                                 id="email"
                                 required
+                                onChange={(e) => setEmail(e.target.value)}
                             />
                         </div>
                         <div className='form-group'>
@@ -46,14 +87,21 @@ function SignupPage() {
                             <input
                                 className='signup-input'
                                 type="text"
-                                placeholder="Enter your user name"
+                                placeholder="Enter your username"
                                 id="username"
                                 required
+                                onChange={(e) => setUsername(e.target.value)}
                             />
                         </div>
                         <div className='form-group'>
                             <label className='signup-label' htmlFor="user-role">User role</label>
-                            <select className='signup-select' id="user-role" required>
+                            <select
+                                className='signup-select'
+                                id="user-role"
+                                required
+                                value={role}
+                                onChange={(e) => setRole(e.target.value)}
+                            >
                                 <option value="">Select your role</option>
                                 <option value="retailer">Retailer</option>
                                 <option value="supplier">Supplier</option>
@@ -67,6 +115,7 @@ function SignupPage() {
                                 id='password'
                                 placeholder='Enter your Password'
                                 required
+                                onChange={(e) => setPassword(e.target.value)}
                             />
                         </div>
                         <div className='form-group'>
@@ -77,15 +126,16 @@ function SignupPage() {
                                 id='confirm-password'
                                 placeholder='Confirm your Password'
                                 required
+                                onChange={(e) => setConfirmPassword(e.target.value)}
                             />
                         </div>
 
-                        <Link to="/dashboard"><button className='submit-button' type="submit">Register</button></Link>
+                        <button className='submit-button' type="submit">Register</button>
                     </form>
 
                     <div className='signup-link'>
                         <p>Already have an Account?</p>
-                        <Link to="/login">Log in</Link> 
+                        <Link to="/login">Log in</Link>
                     </div>
                 </div>
 

@@ -1,9 +1,41 @@
-import React from 'react';
-import { Link } from 'react-router-dom'; 
+import React, { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom'; 
+import axios from 'axios';
 import '@/styles/login.css';
 import LoginImage from '@/assets/LoginImage.svg';
 
 function LoginPage() {
+    const [email, setEmail] = useState('');
+    const [role, setRole] = useState('');
+    const [password, setPassword] = useState('');
+
+    const navigate = useNavigate(); 
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+    
+        console.log("Sending request with:", { email, role, password });
+    
+        axios.post('http://localhost:5000/api/login', { 
+            email, 
+            role, 
+            password
+        })
+        .then(response => {
+            console.log("Login Response:", response.data);
+            alert("Login successful!");
+    
+            localStorage.setItem('token', response.data.token); 
+            localStorage.setItem('role', response.data.role);
+    
+            navigate(response.data.redirectPage);
+        })
+        .catch(err => {
+            console.error("Login Error:", err.response?.data || err.message);
+            alert(err.response?.data?.error || "Login failed. Please try again.");
+        });
+    };
+
     return (
         <div className='page'>
             <div className="wave">
@@ -28,20 +60,28 @@ function LoginPage() {
                         <p>your account</p>
                     </div>
 
-                    <form>
+                    <form onSubmit={handleSubmit}>
                         <div className='form-group'>
-                            <label className='login-label' htmlFor="email">Email or Username</label>
+                            <label className='login-label' htmlFor="email">Email</label>
                             <input
                                 className='login-input'
-                                type="email"
-                                placeholder="Enter your email or username"
+                                type="text"
+                                placeholder="Enter your email"
                                 id="email"
+                                value={email}
+                                onChange={(e) => setEmail(e.target.value)}
                                 required
                             />
                         </div>
                         <div className='form-group'>
                             <label className='login-label' htmlFor="user-role">User role</label>
-                            <select className='login-select' id="user-role" required>
+                            <select
+                                className='login-select'
+                                id="user-role"
+                                value={role}
+                                onChange={(e) => setRole(e.target.value)}
+                                required
+                            >
                                 <option value="">Select your role</option>
                                 <option value="retailer">Retailer</option>
                                 <option value="supplier">Supplier</option>
@@ -54,11 +94,13 @@ function LoginPage() {
                                 type="password"
                                 id='password'
                                 placeholder='Enter your Password'
+                                value={password}
+                                onChange={(e) => setPassword(e.target.value)}
                                 required
                             />
                         </div>
 
-                        <Link to="/dashboard"><button className='submit-button' type="submit">Login</button></Link>
+                        <button className='submit-button' type="submit">Login</button>
                     </form>
 
                     <div className='login-link'>

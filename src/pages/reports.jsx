@@ -13,7 +13,7 @@ const Reports = () => {
         totalValue: 0,
         StockQuantity: 0,
     });
-  
+
     useEffect(() => {
       const fetchData = async () => {
         try {
