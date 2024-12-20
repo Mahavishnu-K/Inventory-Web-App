@@ -9,6 +9,8 @@ import Navbar from '../components/navbar';
 
 const Reports = () => {
     const [totalInventoryValue, setTotalInventoryValue] = useState(0);
+    const [totalStockQuantity, setTotalStockQuantity] = useState(0);
+
     const [data, setData] = useState({
         totalValue: 24389,
         StockQuantity: 25,
@@ -66,14 +68,14 @@ const Reports = () => {
                         <p>Total Inventory Value</p>
                         <h2 className={styles.rupee}>
                           <span><FaRupeeSign size={24} /></span>
-                          ₹{totalInventoryValue}
+                          {totalInventoryValue}
                         </h2>
                       </div>
                       <div className={styles.reportBox}>
                         <p>Stock Quantity</p>    
                         <h2 className={styles.stock}>
                           <span><BiSolidPackage size={30} /></span>
-                          {data.StockQuantity}
+                          {totalStockQuantity}
                         </h2>
                       </div>
                     </div>
@@ -123,7 +125,12 @@ const Reports = () => {
                 </div>
 
                 <div className={styles.reportTable}>
-                  <ReportTable onTotalValueChange={setTotalInventoryValue} />
+                  <ReportTable
+                    onTotalValueChange={(totalInventoryValue, totalStockQuantity) => {
+                      setTotalInventoryValue(totalInventoryValue);
+                      setTotalStockQuantity(totalStockQuantity);
+                    }}
+                  />
                 </div>
               </div>
             </div>

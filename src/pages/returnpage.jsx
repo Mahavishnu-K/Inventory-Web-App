@@ -58,8 +58,7 @@ const RequestReturn = () => {
             <div style={{ display: "flex" }}>
                 <Navbar />
                 <div style={{ flex: 1, padding: "20px" }}>
-                    <div className="full-container">
-                        {/* Form Container */}
+                    <div className="return-container">
                         <div className="request-return-container">
                             <h2 className="title">Request Return</h2>
                             <form className="return-form" onSubmit={handleSubmit}>
@@ -145,7 +144,7 @@ const RequestReturn = () => {
                                 </div>
 
                                 <div className="form-group1">
-                                    <button type="button" onClick={handleReset} className="cancel-button">
+                                    <button type="button" onClick={handleReset} className="return-cancel-button">
                                         Cancel
                                     </button>
                                     <button type="submit" className="return-button">

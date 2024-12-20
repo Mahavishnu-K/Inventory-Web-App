@@ -5,7 +5,7 @@
     font-size: 25px;
 }
 
-.full-container {
+.return-container {
     display: flex;
     align-items: center; 
     margin-top: 70px;
@@ -57,7 +57,7 @@ textarea.input-field {
     margin-top: 20px;
 }
 
-.cancel-button,
+.return-cancel-button,
 .return-button {
     width: 150px;
     height: 50px;
@@ -67,7 +67,7 @@ textarea.input-field {
     cursor: pointer;
 }
 
-.cancel-button {
+.return-cancel-button {
     background-color: rgb(255, 255, 255);
     border: 1px solid #0E2547;
     color: #0E2547;
