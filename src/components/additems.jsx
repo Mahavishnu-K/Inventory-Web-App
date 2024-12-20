@@ -3,20 +3,15 @@ import axios from 'axios';
 import styles from '@/components/additems.module.css';
 
 
-export function AddNewItem ( {isOpen, onClose} ){
+export function AddNewItem ( {isOpen, onClose, onItemAdded} ){
     const [formData, setFormData] = useState({
-        type: '',
         itemName: '',
-        serialNumber: '',
-        itemNumber: '',
-        unitOfMeasurement: '',
-        amount: '',
+        productId: '',
         price: '',
+        quantity: '',
         dateOfPurchase: '',
-        department: '',
-        category: '',
-        store: '',
         expiryDate: '',
+        category: '',
         description: ''
     });
 
@@ -29,9 +24,12 @@ export function AddNewItem ( {isOpen, onClose} ){
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        console.log('handleSubmit called'); 
         try {
-            const response = await axios.post('https://your-backend-url.com/api/items', formData);
+            const response = await axios.post('http://localhost:5000/api/inventory', formData);
             console.log('Item added successfully:', response.data);
+            onItemAdded(formData);
+            onClose();
         } catch (error) {
             console.error('Error adding item:', error);
         }
@@ -54,38 +52,12 @@ export function AddNewItem ( {isOpen, onClose} ){
                                 <form onSubmit={handleSubmit} className={styles.form}>
                                     <div className={styles.row}>
                                         <div className={styles.formGroup}>
-                                            <label>Type <span className={styles.required}>*</span></label>
-                                            <select name="type" value={formData.type} onChange={handleChange} className={styles.input} required>
-                                                <option>Choose type</option>
-                                            </select>
-                                        </div>
-                                        <div className={styles.formGroup}>
                                             <label>Item Name <span className={styles.required}>*</span></label>
                                             <input type="text" name="itemName" value={formData.itemName} onChange={handleChange} className={styles.input} placeholder="Enter item name" required />
                                         </div>
-                                    </div>
-
-                                    <div className={styles.row}>
                                         <div className={styles.formGroup}>
-                                            <label>Serial Number <span className={styles.required}>*</span></label>
-                                            <input type="text" name="serialNumber" value={formData.serialNumber} onChange={handleChange} className={styles.input} placeholder="Enter serial number" required />
-                                        </div>
-                                        <div className={styles.formGroup}>
-                                            <label>Item Number <span className={styles.required}>*</span></label>
-                                            <input type="text" name="itemNumber" value={formData.itemNumber} onChange={handleChange} className={styles.input} placeholder="Enter item number" required />
-                                        </div>
-                                    </div>
-
-                                    <div className={styles.row}>
-                                        <div className={styles.formGroup}>
-                                            <label>Unit of Measurement <span className={styles.required}>*</span></label>
-                                            <select name="unitOfMeasurement" value={formData.unitOfMeasurement} onChange={handleChange} className={styles.input} required>
-                                                <option>Choose unit of Measurement</option>
-                                            </select>
-                                        </div>
-                                        <div className={styles.formGroup}>
-                                            <label>Amount <span className={styles.required}>*</span></label>
-                                            <input type="number" name="amount" value={formData.amount} onChange={handleChange} className={styles.input} placeholder="Enter amount" required />
+                                            <label>Product ID <span className={styles.required}>*</span></label>
+                                            <input type="text" name="productId" value={formData.productId} onChange={handleChange} className={styles.input} placeholder="Enter item number" required />
                                         </div>
                                     </div>
 
@@ -95,36 +67,39 @@ export function AddNewItem ( {isOpen, onClose} ){
                                             <input type="number" name="price" value={formData.price} onChange={handleChange} className={styles.input} placeholder="Enter price" required />
                                         </div>
                                         <div className={styles.formGroup}>
+                                            <label>Quantity <span className={styles.required}>*</span></label>
+                                            <input type="number" name="quantity" value={formData.quantity} onChange={handleChange} className={styles.input} placeholder="Enter quantity" required />
+                                        </div>
+                                    </div>
+
+                                    <div className={styles.row}>
+                                        <div className={styles.formGroup}>
                                             <label>Date of Purchased <span className={styles.required}>*</span></label>
                                             <input type="date"  name="dateOfPurchase" value={formData.dateOfPurchase} onChange={handleChange} className={styles.input} required />
                                         </div>
+                                        <div className={styles.formGroup}>
+                                            <label>Expiry Date</label>
+                                            <input type="date" name="expiryDate" value={formData.expiryDate} onChange={handleChange} className={styles.input} placeholder="Expiry Date" />
+                                        </div>
                                     </div>
 
                                     <div className={styles.row}>
-                                        <div className={styles.formGroup}>
-                                            <label>Department <span className={styles.required}>*</span></label>
-                                            <select name="department" value={formData.department} onChange={handleChange} className={styles.input} required>
-                                                <option>Choose department</option>
-                                            </select>
-                                        </div>
                                         <div className={styles.formGroup}>
                                             <label>Category <span className={styles.required}>*</span></label>
-                                            <select name="category" value={formData.category} onChange={handleChange} className={styles.input} required>
-                                                <option>Choose category</option>
+                                            <select name="category" value={formData.category} onChange={handleChange} className={`${styles.input} ${styles.selectScrollable}`} required>
+                                                <option value="">Choose category</option>
+                                                <option value="electronics">Electronics</option>
+                                                <option value="fashion">Fashion</option>
+                                                <option value="home_appliances">Home Appliances</option>
+                                                <option value="books">Books</option>
+                                                <option value="toys">Toys</option>
+                                                <option value="groceries">Groceries</option>
+                                                <option value="health_beauty">Health & Beauty</option>
+                                                <option value="sports">Sports</option>
+                                                <option value="furniture">Furniture</option>
+                                                <option value="stationery">Stationery</option>
+                                                <option value="pet_supplies">Pet Supplies</option>
                                             </select>
-                                        </div>
-                                    </div>
-
-                                    <div className={styles.row}>
-                                        <div className={styles.formGroup}>
-                                            <label>Store <span className={styles.required}>*</span></label>
-                                            <select name="store" value={formData.store} onChange={handleChange} className={styles.input} required>
-                                                <option>Choose Store</option>
-                                            </select>
-                                        </div>
-                                        <div className={styles.formGroup}>
-                                            <label>Expiry Date <span className={styles.required}>*</span></label>
-                                            <input type="date" name="expiryDate" value={formData.expiryDate} onChange={handleChange} className={styles.input} placeholder="Expiry Date" required />
                                         </div>
                                     </div>
 

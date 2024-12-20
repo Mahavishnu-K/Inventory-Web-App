@@ -11,18 +11,19 @@ const Suppliers = () => {
     const [tableData, setTableData] = useState([]);
 
     const mockData = [
-      { serialNumber: 1, company: "Company 1", supplier: "Supplier 1", email: "supplier1@example.com", phoneNumber: "123-456-7810", gstNumber: "GST001XYZ" },
-      { serialNumber: 2, company: "Company 2", supplier: "Supplier 2", email: "supplier2@example.com", phoneNumber: "123-456-7811", gstNumber: "GST002XYZ" },
-      { serialNumber: 3, company: "Company 3", supplier: "Supplier 3", email: "supplier3@example.com", phoneNumber: "123-456-7812", gstNumber: "GST003XYZ" },
-      { serialNumber: 4, company: "Company 4", supplier: "Supplier 4", email: "supplier4@example.com", phoneNumber: "123-456-7813", gstNumber: "GST004XYZ" },
-      { serialNumber: 5, company: "Company 5", supplier: "Supplier 5", email: "supplier5@example.com", phoneNumber: "123-456-7814", gstNumber: "GST005XYZ" },
-      { serialNumber: 6, company: "Company 6", supplier: "Supplier 6", email: "supplier6@example.com", phoneNumber: "123-456-7815", gstNumber: "GST006XYZ" },
-      { serialNumber: 7, company: "Company 7", supplier: "Supplier 7", email: "supplier7@example.com", phoneNumber: "123-456-7816", gstNumber: "GST007XYZ" },
-      { serialNumber: 8, company: "Company 8", supplier: "Supplier 8", email: "supplier7@example.com", phoneNumber: "123-456-7816", gstNumber: "GST007XYZ" },
-      { serialNumber: 9, company: "Company 9", supplier: "Supplier 9", email: "supplier7@example.com", phoneNumber: "123-456-7816", gstNumber: "GST007XYZ" },
-      { serialNumber: 10, company: "Company 10", supplier: "Supplier 10", email: "supplier7@example.com", phoneNumber: "123-456-7816", gstNumber: "GST007XYZ" },
-      { serialNumber: 11, company: "Company 11", supplier: "Supplier 11", email: "supplier7@example.com", phoneNumber: "123-456-7816", gstNumber: "GST007XYZ" }
-    ];
+      { serialNumber: 1, company: "Tech Solutions Ltd.", supplier: "Alpha Supplies Co.", email: "alpha@supplies.com", phoneNumber: "987-654-3210", gstNumber: "GSTALPHA1234" },
+      { serialNumber: 2, company: "Eco Builders Inc.", supplier: "Green Materials Ltd.", email: "green@materials.com", phoneNumber: "984-651-2210", gstNumber: "GSTGREEN5678" },
+      { serialNumber: 3, company: "Urban Decorators LLC", supplier: "Metro Paints", email: "metro@paints.com", phoneNumber: "981-651-8810", gstNumber: "GSTMETRO9101" },
+      { serialNumber: 4, company: "Modern Electronics", supplier: "PowerTech Distributors", email: "powertech@distributors.com", phoneNumber: "980-123-4410", gstNumber: "GSTPOWER4321" },
+      { serialNumber: 5, company: "Prime Logistics", supplier: "Speedy Couriers", email: "speedy@couriers.com", phoneNumber: "989-654-2233", gstNumber: "GSTSPEED1234" },
+      { serialNumber: 6, company: "BlueWave Solutions", supplier: "Digital Partners Ltd.", email: "digital@partners.com", phoneNumber: "990-555-3311", gstNumber: "GSTDIGITAL6789" },
+      { serialNumber: 7, company: "SteelWorks Inc.", supplier: "IronForge Supplies", email: "ironforge@supplies.com", phoneNumber: "987-123-1212", gstNumber: "GSTIRON1212" },
+      { serialNumber: 8, company: "AgriTech Solutions", supplier: "Farmers First", email: "farmers@first.com", phoneNumber: "992-456-7890", gstNumber: "GSTFARM4567" },
+      { serialNumber: 9, company: "Global Traders", supplier: "Oceanic Imports", email: "oceanic@imports.com", phoneNumber: "981-789-4560", gstNumber: "GSTOCEAN7890" },
+      { serialNumber: 10, company: "Solar Energy Corp.", supplier: "Renewable Panels Ltd.", email: "renewable@panels.com", phoneNumber: "983-654-7899", gstNumber: "GSTSOLAR5678" },
+      { serialNumber: 11, company: "Foodie's Delight", supplier: "Organic Grocers", email: "organic@grocers.com", phoneNumber: "980-123-4567", gstNumber: "GSTFOOD1234" }
+  ];
+  
   
     useEffect(() => {
       const fetchData = () => {

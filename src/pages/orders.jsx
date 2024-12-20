@@ -25,14 +25,15 @@ function Orders(){
         */
 
         setTimeout(() => {
-        const mockData = [
-            { id: "01", company: "company name", name: "name1", email: "abc@gmail.com", date: "23102023" },
-            { id: "02", company: "company name", name: "name2", email: "def@gmail.com", date: "24102023" },
-            { id: "03", company: "company name", name: "name3", email: "ghi@gmail.com", date: "25102023" },
-            { id: "04", company: "company name", name: "name4", email: "ghi@gmail.com", date: "25102023" },
-            { id: "05", company: "company name", name: "name5", email: "ghi@gmail.com", date: "25102023" },
-            { id: "06", company: "company name", name: "name6", email: "ghi@gmail.com", date: "25102023" }
-        ];
+            const mockData = [
+                { id: "01", company: "Tech Solutions Inc.", name: "Alice Johnson", email: "alice.johnson@example.com", date: "23-10-2023" },
+                { id: "02", company: "Global Innovations", name: "Michael Smith", email: "michael.smith@example.com", date: "24-10-2023" },
+                { id: "03", company: "NextGen Software", name: "Sophia Brown", email: "sophia.brown@example.com", date: "25-10-2023" },
+                { id: "04", company: "EcoTech Ltd.", name: "James Wilson", email: "james.wilson@example.com", date: "25-10-2023" },
+                { id: "05", company: "Green Energy Corp.", name: "Emma Davis", email: "emma.davis@example.com", date: "26-10-2023" },
+                { id: "06", company: "Smart Solutions", name: "William Taylor", email: "william.taylor@example.com", date: "27-10-2023" }
+            ];
+            
         setSuppliers(mockData);
         setLoading(false);
         }, 500); 

@@ -21,7 +21,7 @@
     padding-top: 10px;
     width: 750px;
     border-radius: 20px;
-    height: 680px;
+    height:fit-content;
     z-index: 10;
 }
 
@@ -60,6 +60,17 @@ label {
     width: 100%;
     box-sizing: border-box;
     outline: none;
+}
+
+.selectScrollable {
+    max-height: 50px; 
+    overflow-y: hidden; 
+}
+
+.selectScrollable:focus {
+    max-height: 150px; 
+    overflow-y: auto; 
+    z-index: 1000;
 }
 
 .input:focus, .textarea:focus, select:focus {

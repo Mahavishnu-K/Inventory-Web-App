@@ -4,16 +4,16 @@ import '../styles/leaderboard.css'
 
 const Leaderboard = () => {
     const initialData = [
-        { supplierName: 'Supplier A', trustPoints: 950 },
-        { supplierName: 'Supplier B', trustPoints: 850 },
-        { supplierName: 'Supplier C', trustPoints: 800 },
-        { supplierName: 'Supplier D', trustPoints: 750 },
-        { supplierName: 'Supplier E', trustPoints: 780 },
-        { supplierName: 'Supplier F', trustPoints: 730 },
-        { supplierName: 'Supplier G', trustPoints: 710 },
-        { supplierName: 'Supplier H', trustPoints: 690 },
-        { supplierName: 'Supplier I', trustPoints: 700 },
-        { supplierName: 'Supplier J', trustPoints: 650 },
+        { supplierName: 'Global Trade Co.', trustPoints: 950 },
+        { supplierName: 'Prime Wholesale Ltd.', trustPoints: 850 },
+        { supplierName: 'EcoSupply Partners', trustPoints: 800 },
+        { supplierName: 'NextGen Distributors', trustPoints: 750 },
+        { supplierName: 'Greenfield Supplies', trustPoints: 780 },
+        { supplierName: 'Metro Logistics', trustPoints: 730 },
+        { supplierName: 'Alliance Goods Co.', trustPoints: 710 },
+        { supplierName: 'BlueSky Procurement', trustPoints: 690 },
+        { supplierName: 'Urban Supply Chain', trustPoints: 700 },
+        { supplierName: 'Continental Imports', trustPoints: 650 },
     ];
 
     const [searchTerm, setSearchTerm] = useState('');

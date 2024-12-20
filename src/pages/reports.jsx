@@ -1,45 +1,47 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
 import { LuFilter } from "react-icons/lu";
 import { FaRupeeSign } from "react-icons/fa";
 import { BiSolidPackage } from "react-icons/bi";
 import { TbArrowsSort } from "react-icons/tb";
 import styles from '@/styles/reports.module.css';
 import ReportTable from "../components/reportTable";
-import Navbar from '../components/navbar'
+import Navbar from '../components/navbar';
 
 const Reports = () => {
+    const [totalInventoryValue, setTotalInventoryValue] = useState(0);
     const [data, setData] = useState({
-        totalValue: 0,
-        StockQuantity: 0,
+        totalValue: 24389,
+        StockQuantity: 25,
     });
 
     useEffect(() => {
-      const fetchData = async () => {
-        try {
-          const mockData = {
-            totalValue: 24389,
-            StockQuantity: 25,
-          };
-  
-          setTimeout(() => {
-            setData(mockData);
-          }, 500);
-        } catch (error) {
-          console.error("Error fetching product data:", error);
-        }
-      };
-      fetchData();
+        const fetchData = async () => {
+            try {
+                const mockData = {
+                    totalValue: 24389,
+                    StockQuantity: 25,
+                };
+    
+                setTimeout(() => {
+                    setData(mockData);
+                }, 500);
+            } catch (error) {
+                console.error("Error fetching product data:", error);
+            }
+        };
+        fetchData();
     }, []);
 
     const [dat, setDat] = useState([]);
 
     useEffect(() => {
         const mockDat = [
-            { id: 1, item: "Item1", status: "Approved" },
-            { id: 2, item: "Item2", status: "Disapproved" },
-            { id: 3, item: "Item3", status: "Approved" },
-            { id: 4, item: "Item4", status: "Pending" },
+            { id: 1, item: "Steel Beams", status: "Approved" },
+            { id: 2, item: "Concrete Mix", status: "Disapproved" },
+            { id: 3, item: "Electrical Wiring", status: "Approved" },
+            { id: 4, item: "HVAC System", status: "Pending" },
+            { id: 5, item: "Paint Supplies", status: "Pending" },
+            { id: 6, item: "Wooden Panels", status: "Disapproved" },
         ];
 
         setTimeout(() => {
@@ -50,7 +52,7 @@ const Reports = () => {
     return (
       <>
         <div style={{ display: 'flex' }}>
-          <Navbar/>
+          <Navbar />
           <div style={{ flex: 1, padding: '20px' }}>
             <div className={styles.page}>
               <div className={styles.reportPage}>
@@ -64,7 +66,7 @@ const Reports = () => {
                         <p>Total Inventory Value</p>
                         <h2 className={styles.rupee}>
                           <span><FaRupeeSign size={24} /></span>
-                          {data.totalValue}
+                          ₹{totalInventoryValue}
                         </h2>
                       </div>
                       <div className={styles.reportBox}>
@@ -121,7 +123,7 @@ const Reports = () => {
                 </div>
 
                 <div className={styles.reportTable}>
-                  <ReportTable/>
+                  <ReportTable onTotalValueChange={setTotalInventoryValue} />
                 </div>
               </div>
             </div>

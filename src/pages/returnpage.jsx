@@ -5,10 +5,13 @@ import returnImage from "@/assets/returnImage.svg";
 
 const RequestReturn = () => {
     const [suppliers] = useState([
-        { id: 1, name: "Supplier A" },
-        { id: 2, name: "Supplier B" },
-        { id: 3, name: "Supplier C" },
+        { id: 1, name: "Alpha Supplies Co." },
+        { id: 2, name: "Green Materials Ltd." },
+        { id: 3, name: "IronForge Supplies" },
+        { id: 4, name: "Metro Paints" },
+        { id: 5, name: "Digital Partners Ltd." }
     ]);
+    
 
     const [formData, setFormData] = useState({
         product: "",
