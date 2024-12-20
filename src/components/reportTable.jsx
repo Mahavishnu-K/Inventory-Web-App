@@ -21,7 +21,6 @@ const ReportTable = ({ onTotalValueChange }) => {
         setTimeout(() => {
             setOrders(mockOrders);
 
-            // Calculate total price and pass to parent component
             const totalPrice = mockOrders.reduce((total, order) => total + order.price, 0);
             onTotalValueChange(totalPrice);
         }, 500);

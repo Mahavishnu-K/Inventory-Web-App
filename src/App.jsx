@@ -10,6 +10,7 @@ import Dashboard from './pages/dashboard';
 import RequestReturn from './pages/returnpage';
 import SignupPage from './pages/signup';
 import LoginPage from './pages/login';
+import ProfilePage from './pages/profilePage';
 
 function App() {
   return(
@@ -19,6 +20,7 @@ function App() {
               <Route path = "/" element={<LoginPage />} />
               <Route path = "/login" element={<LoginPage />} />
               <Route path = "/signup" element={<SignupPage />} />
+              <Route path = "/profile-page" element={<ProfilePage />} />
               <Route path = "/dashboard" element={<Dashboard />} />
               <Route path = "/inventory" element={<Inventory />} />
               <Route path = "/reports" element={<Reports />} />

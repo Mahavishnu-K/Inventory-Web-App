@@ -19,7 +19,7 @@ export function ProfileMenu({ isOpen, onClose }) {
                         <div className={styles.overlayContainer} onClick={(e) => e.stopPropagation()}>
                             <div className={styles.profileDropdown}>
                                 <ul>
-                                    <Link to = '/' style={{textDecoration : "None"}}><li>Profile</li></Link>
+                                    <Link to = '/profile-page' style={{textDecoration : "None"}}><li>Profile</li></Link>
                                     <Link to = '/login' style={{textDecoration : "None"}}
                                     ><li>Logout
                                         <span>
