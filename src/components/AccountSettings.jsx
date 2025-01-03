@@ -32,7 +32,6 @@ const AccountSettings = () => {
         }));
     };
 
-
     const handleUpload = () => {
         alert('Profile picture uploaded!');
     };

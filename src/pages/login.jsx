@@ -6,34 +6,31 @@ import LoginImage from '@/assets/LoginImage.svg';
 
 function LoginPage() {
     const [email, setEmail] = useState('');
-    const [role, setRole] = useState('');
+    const [role, setRole] = useState(''); 
     const [password, setPassword] = useState('');
 
-    const navigate = useNavigate(); 
+    const navigate = useNavigate();
 
     const handleSubmit = (e) => {
         e.preventDefault();
-    
+
         console.log("Sending request with:", { email, role, password });
-    
-        axios.post('http://localhost:5000/api/login', { 
-            email, 
-            role, 
-            password
+
+        axios.post('http://localhost:5000/api/login', {
+            email,
+            role,
+            password,
         })
-        .then(response => {
-            console.log("Login Response:", response.data);
-            alert("Login successful!");
-    
-            localStorage.setItem('token', response.data.token); 
-            localStorage.setItem('role', response.data.role);
-    
-            navigate(response.data.redirectPage);
-        })
-        .catch(err => {
-            console.error("Login Error:", err.response?.data || err.message);
-            alert(err.response?.data?.error || "Login failed. Please try again.");
-        });
+            .then((response) => {
+                localStorage.setItem('role', response.data.role);
+                localStorage.setItem('userId', response.data.userId);
+
+                navigate('/dashboard');
+            }) 
+            .catch((err) => {
+                console.error("Login Error:", err.response?.data || err.message);
+                alert(err.response?.data?.error || "Login failed. Please try again.");
+            });
     };
 
     return (

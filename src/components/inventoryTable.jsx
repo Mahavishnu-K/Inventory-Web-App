@@ -18,8 +18,8 @@ const InventoryTable = ({ products }) => {
             </tr>
           </thead>
           <tbody>
-            {products.map(product => (
-              <tr key={product.productId}>
+            {products.map((product, index) => (
+              <tr key={product.productId || `product-${index}`}>
                 <td>{product.serialNo}</td>
                 <td>{product.productName}</td>
                 <td>{product.productId}</td>

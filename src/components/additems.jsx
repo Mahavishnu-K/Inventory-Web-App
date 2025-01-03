@@ -25,13 +25,30 @@ export function AddNewItem ( {isOpen, onClose, onItemAdded} ){
     const handleSubmit = async (e) => {
         e.preventDefault();
         console.log('handleSubmit called'); 
+
+        const token = localStorage.getItem('authToken');
+
+        if (!token) {
+            alert("Unauthorized: No token found. Please log in again.");
+            return;
+        }
+
         try {
-            const response = await axios.post('http://localhost:5000/api/inventory', formData);
+            const response = await axios.post(
+                'http://localhost:5000/api/inventory', 
+                formData, 
+                {
+                    headers: {
+                        Authorization: `Bearer ${token}`, 
+                    }
+                }
+            );
             console.log('Item added successfully:', response.data);
-            onItemAdded(formData);
+            onItemAdded(response.data);
             onClose();
         } catch (error) {
-            console.error('Error adding item:', error);
+            console.error('Error adding item:', error.response?.data || error.message);
+            alert(error.response?.data?.error || "Failed to add item. Please try again.");
         }
     };
 

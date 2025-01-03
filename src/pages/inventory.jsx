@@ -18,7 +18,18 @@ const Inventory = () => {
 
   const fetchData = async () => {
     try {
-      const response = await axios.get("http://localhost:5000/api/inventory");
+      const token = localStorage.getItem('authToken'); 
+      if (!token) {
+          console.error('No token found. Please log in again.');
+          return;
+      }
+
+      const response = await axios.get("http://localhost:5000/api/inventory", {
+          headers: {
+              Authorization: token, 
+          },
+      });
+
       const formattedData = response.data.map((item, index) => ({
         serialNo: index + 1,
         productName: item.itemName,
@@ -28,8 +39,9 @@ const Inventory = () => {
         category: item.category,
         status: item.quantity > 0 ? "In Stock" : "Out of Stock",
       }));
+      console.log("Formatted Data :",formattedData);
       setInventoryData(formattedData);
-
+  
       setData({
         totalProducts: formattedData.length,
         outOfStock: formattedData.filter(item => item.status === "Out of Stock").length,
@@ -39,24 +51,33 @@ const Inventory = () => {
       console.error("Error fetching product data:", error);
     }
   };
+  
 
   useEffect(() => {
     fetchData();
   }, []);
 
   const handleItemAdded = (newItem) => {
+    console.log('New Item Added:', newItem);
+    console.log('Previous Inventory Data:', inventoryData);
+  
     const newItemData = {
       serialNo: inventoryData.length + 1,
       productName: newItem.itemName,
       productId: newItem.productId,
       quantity: newItem.quantity,
-      expiryDate: newItem.expiryDate,
+      expiryDate: newItem.expiryDate ? new Date(newItem.expiryDate).toLocaleDateString() : "NA",
       category: newItem.category,
       status: newItem.quantity > 0 ? "In Stock" : "Out of Stock",
     };
-    setInventoryData(prevData => [...prevData, newItemData]);
-
-    setData(prevData => ({
+  
+    setInventoryData((prevData) => {
+      const updatedData = [...prevData, newItemData];
+      console.log('Updated Inventory Data:', updatedData);
+      return updatedData;
+    });
+  
+    setData((prevData) => ({
       ...prevData,
       totalProducts: prevData.totalProducts + 1,
       inStock: newItem.quantity > 0 ? prevData.inStock + 1 : prevData.inStock,
