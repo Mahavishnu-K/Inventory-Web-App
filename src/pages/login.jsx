@@ -24,7 +24,8 @@ function LoginPage() {
             .then((response) => {
                 localStorage.setItem('role', response.data.role);
                 localStorage.setItem('userId', response.data.userId);
-
+                localStorage.setItem('authToken', response.data.token);
+                alert('Login successful!');
                 navigate('/dashboard');
             }) 
             .catch((err) => {
