@@ -18,28 +18,29 @@ const Inventory = () => {
 
   const fetchData = async () => {
     try {
-      const token = localStorage.getItem('authToken'); 
+      const token = localStorage.getItem('authToken');
       if (!token) {
-          console.error('No token found. Please log in again.');
-          return;
+        console.error('No token found. Please log in again.');
+        window.location.href = '/login';
+        return;
       }
-
-      const response = await axios.get("http://localhost:5000/api/inventory", {
-          headers: {
-              Authorization: token, 
-          },
+  
+      const response = await axios.get('http://localhost:5000/api/inventory', {
+        headers: { Authorization: `Bearer ${token}` },
       });
-
+  
+      console.log("Backend Response:", response.data);
+  
       const formattedData = response.data.map((item, index) => ({
         serialNo: index + 1,
-        productName: item.itemName,
-        productId: item.productId,
-        quantity: item.quantity,
+        productName: item.itemName || "Unknown",
+        productId: item.productId || "N/A",
+        quantity: item.quantity || 0,
         expiryDate: item.expiryDate ? new Date(item.expiryDate).toLocaleDateString() : "NA",
-        category: item.category,
+        category: item.category || "Uncategorized",
         status: item.quantity > 0 ? "In Stock" : "Out of Stock",
       }));
-      console.log("Formatted Data :",formattedData);
+  
       setInventoryData(formattedData);
   
       setData({
@@ -52,28 +53,27 @@ const Inventory = () => {
     }
   };
   
-
+  
   useEffect(() => {
     fetchData();
   }, []);
 
   const handleItemAdded = (newItem) => {
-    console.log('New Item Added:', newItem);
-    console.log('Previous Inventory Data:', inventoryData);
+    console.log("New Item Added:", newItem);
   
     const newItemData = {
       serialNo: inventoryData.length + 1,
-      productName: newItem.itemName,
-      productId: newItem.productId,
-      quantity: newItem.quantity,
+      productName: newItem.itemName || "Unknown",
+      productId: newItem.productId || "N/A",
+      quantity: newItem.quantity || 0,
       expiryDate: newItem.expiryDate ? new Date(newItem.expiryDate).toLocaleDateString() : "NA",
-      category: newItem.category,
+      category: newItem.category || "Uncategorized",
       status: newItem.quantity > 0 ? "In Stock" : "Out of Stock",
     };
   
     setInventoryData((prevData) => {
       const updatedData = [...prevData, newItemData];
-      console.log('Updated Inventory Data:', updatedData);
+      console.log("Updated Inventory Data:", updatedData);
       return updatedData;
     });
   
@@ -84,6 +84,7 @@ const Inventory = () => {
       outOfStock: newItem.quantity === 0 ? prevData.outOfStock + 1 : prevData.outOfStock,
     }));
   };
+  
 
   const toggleOverlay = () => setShowOverlay(!showOverlay);
 

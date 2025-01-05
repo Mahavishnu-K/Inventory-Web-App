@@ -14,7 +14,7 @@ export function AddNewItem({ isOpen, onClose, onItemAdded }) {
         description: ''
     });
 
-    const [loading, setLoading] = useState(false); // Add a loading state
+    const [loading, setLoading] = useState(false); 
 
     const handleChange = (e) => {
         setFormData({
