@@ -1,0 +1,63 @@
+.supOverlayBackground{
+    background-color: rgb(0,0,0,0.5);
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    cursor: pointer;
+    z-index: 9;
+}
+
+.supOverlayContainer{
+    background-color: white;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    position: fixed;
+    margin: auto;
+    padding: 50px;
+    padding-top: 10px;
+    width: 550px;
+    border-radius: 20px;
+    height:fit-content;
+    z-index: 10;
+}
+
+.supbuttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+    margin-left: 35%;
+}
+
+.detailtext{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.detailtext h3{
+    color: #0E2547;
+}
+
+
+.closeButton {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    background-color: #d6e2ea;
+    color: #000000;
+    border-radius: 10px;
+    font-weight: 600;
+}
+
+.closeButton:hover {
+    background-color: #ddd;
+}
+
+
+

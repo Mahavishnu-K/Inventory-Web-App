@@ -71,11 +71,8 @@ const Inventory = () => {
       status: newItem.quantity > 0 ? "In Stock" : "Out of Stock",
     };
   
-    setInventoryData((prevData) => {
-      const updatedData = [...prevData, newItemData];
-      console.log("Updated Inventory Data:", updatedData);
-      return updatedData;
-    });
+    setInventoryData((prevData) => [...prevData, newItemData]); 
+    console.log("Updated Inventory Data:", [...inventoryData, newItemData]);
   
     setData((prevData) => ({
       ...prevData,

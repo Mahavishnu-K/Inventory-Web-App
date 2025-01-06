@@ -50,7 +50,9 @@ export function AddNewItem({ isOpen, onClose, onItemAdded }) {
             );
             console.log('Item added successfully:', response.data);
 
-            if (onItemAdded) onItemAdded(response.data); 
+            if (onItemAdded) {
+                onItemAdded(response.data.item); 
+            }     
             resetForm(); 
             if (onClose) onClose();
         } catch (error) {
@@ -84,8 +86,8 @@ export function AddNewItem({ isOpen, onClose, onItemAdded }) {
         <>
             {isOpen && (
                 <div className={styles.overlay}>
-                    <div className={styles.overlayBackground} onClick={handleOverlayClick}>
-                        <div className={styles.overlayContainer} onClick={(e) => e.stopPropagation()}>
+                    <div className={styles.itemOverlayBackground} onClick={handleOverlayClick}>
+                        <div className={styles.itemOverlayContainer} onClick={(e) => e.stopPropagation()}>
                             <h2 className={styles.title}>Add New Item</h2>
                             <form onSubmit={handleSubmit} className={styles.form}>
                                 <div className={styles.row}>
@@ -127,19 +129,19 @@ export function AddNewItem({ isOpen, onClose, onItemAdded }) {
                                         <select name="category" value={formData.category} onChange={handleChange} className={`${styles.input} ${styles.selectScrollable}`} required>
                                             <option value="">Choose category</option>
                                             {[
-                                                "electronics",
-                                                "fashion",
-                                                "home_appliances",
-                                                "books",
-                                                "toys",
-                                                "groceries",
-                                                "health_beauty",
-                                                "sports",
-                                                "furniture",
-                                                "stationery",
-                                                "pet_supplies"
+                                                "Electronics",
+                                                "Fashion",
+                                                "Home_appliances",
+                                                "Books",
+                                                "Toys",
+                                                "Groceries",
+                                                "Health_beauty",
+                                                "Sports",
+                                                "Furniture",
+                                                "Stationery",
+                                                "Pet_supplies"
                                             ].map((category) => (
-                                                <option key={category} value={category}>{category.replace('_', ' ').toUpperCase()}</option>
+                                                <option key={category} value={category}>{category.replace('_', ' ')}</option>
                                             ))}
                                         </select>
                                     </div>

@@ -5,7 +5,8 @@ import '@/styles/suppliers.css';
 import { LuFilter } from "react-icons/lu";
 import { FaFileExport } from "react-icons/fa6";
 import { BsFillPrinterFill } from "react-icons/bs";
-
+import { AddSupplier } from "../components/addSuppliers";
+import { SupplierDetail } from "../components/supplierDetail";
 
 const Suppliers = () => {
     const [tableData, setTableData] = useState([]);
@@ -24,6 +25,8 @@ const Suppliers = () => {
       { serialNumber: 11, company: "Foodie's Delight", supplier: "Organic Grocers", email: "organic@grocers.com", phoneNumber: "980-123-4567", gstNumber: "GSTFOOD1234" }
   ];
   
+  const [showOverlay, setShowOverlay] = useState(false);
+  const [showOverlayAdd, setShowOverlayAdd] = useState(false);
   
     useEffect(() => {
       const fetchData = () => {
@@ -34,21 +37,24 @@ const Suppliers = () => {
       fetchData();
     }, []);
   
+    const toggleOverlay = () => setShowOverlay(!showOverlay);
+    const toggleOverlayAdd = () => setShowOverlayAdd(!showOverlayAdd);
 
     return (
+      <>
         <div style={{ display: 'flex' }}>
           <Navbar />
           <div style={{ flex: 1, padding: '20px' }}>
               <div className="container">
                 <h1 className="supplier-title">Suppliers</h1>
-                <div className="buttons">
+                <div className="supplier-buttons">
                   <div className="leftControls">
                     <button className="filterButton">Filter <LuFilter size={18}/></button>
                   </div>
                   <div className="rightControls">
                     <button className="actionButton-export">Export PDF <FaFileExport /> </button>
                     <button className="actionButton-print">Print <BsFillPrinterFill /> </button>
-                    <button className="addButton">Add Suppliers <FaPlus/> </button>
+                    <button className="addButton" onClick={toggleOverlayAdd}>Add Suppliers <FaPlus/> </button>
                   </div>
                 </div>
                   <div className="tableContainer">
@@ -56,12 +62,11 @@ const Suppliers = () => {
                       <table>
                         <thead>
                           <tr>
-                            <th>Serial Number</th>
+                            <th>S No</th>
                             <th>Company</th>
-                            <th>Supplier</th>
+                            <th>Supplier Name</th>
                             <th>Email ID</th>
-                            <th>Phone Number</th>
-                            <th>GST No</th>
+                            <th>Action</th>
                           </tr>
                         </thead>
                         <tbody>
@@ -71,8 +76,7 @@ const Suppliers = () => {
                               <td>{row.company}</td>
                               <td>{row.supplier}</td>
                               <td>{row.email}</td>
-                              <td>{row.phoneNumber}</td>
-                              <td>{row.gstNumber}</td>
+                              <td><button className="viewButton" onClick={toggleOverlay}>View Detail</button></td>
                               
                             </tr>
                           ))}
@@ -83,6 +87,9 @@ const Suppliers = () => {
                 </div>
           </div>
         </div>
+        <AddSupplier isOpen={showOverlayAdd} onClose={() => setShowOverlayAdd(false)}/>
+        <SupplierDetail isOpen={showOverlay} onClose={() => setShowOverlay(false)}/>
+        </>
     );
 };
 

@@ -1,4 +1,4 @@
-.itemOverlayBackground{
+.addSupOverlayBackground{
     background-color: rgba(0,0,0,0.5);
     width: 100vw;
     height: 100vh;
@@ -9,7 +9,7 @@
     z-index: 9;
 }
 
-.itemOverlayContainer{
+.addSupOverlayContainer{
     background-color: white;
     top: 0;
     left: 0;
@@ -42,7 +42,7 @@
     flex: 1;
 }
 
-label {
+.label {
     font-weight: bold;
     color: #333;
     margin-bottom: 5px;
@@ -52,35 +52,18 @@ label {
     color: red;
 }
 
-.input, .textarea, select {
+.input {
     padding: 10px;
     font-size: 14px;
     border: 1px solid #ccc;
     border-radius: 5px;
     width: 100%;
     box-sizing: border-box;
-
     outline: none;
 }
 
-.selectScrollable {
-    max-height: 50px; 
-    overflow-y: hidden; 
-}
-
-.selectScrollable:focus {
-    max-height: 150px; 
-    overflow-y: auto; 
-    z-index: 1000;
-}
-
-.input:focus, .textarea:focus, select:focus {
+.input:focus {
     border-color: #555;
-}
-
-.textarea {
-    resize: none;
-    height: 80px;
 }
 
 .buttons {
