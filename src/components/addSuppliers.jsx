@@ -6,11 +6,12 @@ export function AddSupplier({ isOpen, onClose, onSupplierAdded }) {
     const [formData, setFormData] = useState({
         company: '',
         supplierName: '',
-        emailID: '',
+        emailId: '',
         phoneNumber: '',
         gstNo: '',
         category: ''
     });
+
 
     const [loading, setLoading] = useState(false); 
 
@@ -27,6 +28,11 @@ export function AddSupplier({ isOpen, onClose, onSupplierAdded }) {
 
         const token = localStorage.getItem('authToken'); 
 
+        if (!formData.emailId || formData.emailId.trim() === "") {
+            alert("Email ID is required and cannot be empty.");
+            return;
+        }
+
         if (!token) {
             alert("Unauthorized: No token found. Please log in again.");
             window.location.href = "/login";
@@ -36,7 +42,8 @@ export function AddSupplier({ isOpen, onClose, onSupplierAdded }) {
         try {
             setLoading(true); 
             const response = await axios.post(
-                'http://localhost:5000/api/suppiler',
+                'http://localhost:5000/api/suppliers',
+                formData,
                 {
                     headers: {
                         Authorization: `Bearer ${token}`,
@@ -62,12 +69,13 @@ export function AddSupplier({ isOpen, onClose, onSupplierAdded }) {
         setFormData({
             company: '',
             supplierName: '',
-            emailID: '',
+            emailId: '',
             phoneNumber: '',
             gstNo: '',
             category: ''
         });
     };
+    
 
     const handleOverlayClick = (e) => {
         if (e.target === e.currentTarget) {
@@ -97,22 +105,22 @@ export function AddSupplier({ isOpen, onClose, onSupplierAdded }) {
                                 <div className="row">
                                     <div className="formGroup">
                                         <label className="label">Email ID<span className="required">*</span></label>
-                                        <input type="text" name="email" value={formData.emailID} onChange={handleChange} className="input" placeholder="Enter Email ID" required min="0" />
+                                        <input type="text" name="emailId" value={formData.emailId} onChange={handleChange} className="input" placeholder="Enter Email ID" required />
                                     </div>
                                     <div className="formGroup">
                                         <label className="label">Phone Number <span className="required">*</span></label>
-                                        <input type="number" name="phone" value={formData.phoneNumber} onChange={handleChange} className="input" placeholder="Enter Phone number" required min="0" />
+                                        <input type="number" name="phoneNumber" value={formData.phoneNumber} onChange={handleChange} className="input" placeholder="Enter Phone number" required min="0"/>
                                     </div>
                                 </div>
 
                                 <div className="row">
                                     <div className="formGroup">
                                         <label className="label">GST No.<span className="required">*</span></label>
-                                        <input type="text" name="gst" value={formData.gstNo} onChange={handleChange} className="input" placeholder="Enter GST No." required min="0" />
+                                        <input type="text" name="gstNo" value={formData.gstNo} onChange={handleChange} className="input" placeholder="Enter GST No." required />
                                     </div>
                                     <div className="formGroup">
                                         <label className="label">Category<span className="required">*</span></label>
-                                        <input type="text" name="category" value={formData.category} onChange={handleChange} className="input" placeholder="Enter the category" required min="0" />
+                                        <input type="text" name="category" value={formData.category} onChange={handleChange} className="input" placeholder="Enter the category" required />
                                     </div>
                                 </div>
 
