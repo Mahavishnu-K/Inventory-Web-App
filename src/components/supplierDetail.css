@@ -43,21 +43,69 @@
     color: #0E2547;
 }
 
+.editing{
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+}
 
-.closeButton {
+.supplier-user-input{
+    border: 1px solid #a6a0a0;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.remove-supplier{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 40px;
+    border: none;
+    border-radius: 10px;
+    background-color: rgb(213, 213, 246);
+}
+
+.remove-supplier:hover{
+    background-color: rgb(241, 189, 189);
+    cursor: pointer;
+}
+
+.supplierDetail-buttons {
+    display: flex;
+    gap: 30px;
+    margin-top: 25px;
+    margin-left: 35%;
+}
+
+.saveButton, .sup-closeButton{
     padding: 10px 20px;
     font-size: 16px;
     border: none;
     cursor: pointer;
+}
+
+.sup-closeButton {
     background-color: #d6e2ea;
     color: #000000;
     border-radius: 10px;
     font-weight: 600;
 }
 
-.closeButton:hover {
+.saveButton{
+    background-color: #0E2547;
+    color: #ffffff;
+    border-radius: 10px;
+    font-weight: 600;
+}
+
+.sup-closeButton:hover {
     background-color: #ddd;
 }
 
+.saveButton:hover {
+    background-color: #091730;
+}
 
 

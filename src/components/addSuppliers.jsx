@@ -54,7 +54,7 @@ export function AddSupplier({ isOpen, onClose, onSupplierAdded }) {
 
             if (onSupplierAdded) {
                 onSupplierAdded(response.data.item); 
-            }     
+            }  
             resetForm(); 
             if (onClose) onClose();
         } catch (error) {

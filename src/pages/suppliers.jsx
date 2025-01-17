@@ -11,6 +11,8 @@ import { SupplierDetail } from "../components/supplierDetail";
 
 const Suppliers = () => {
     const [supplierData, setSupplierData] = useState([]);
+    const [selectedSupplier, setSelectedSupplier] = useState(null);
+
 
     const fetchData = async () => {
       try {
@@ -50,29 +52,29 @@ const Suppliers = () => {
     }, []);
 
     const handleSupplierAdded = (newSupplier) => {
-      console.log("New Supplier Added:", newSupplier);
-    
-      const newSupplierData = {
-        sNo: supplierData.length + 1,
-        company: newSupplier.company || "Unknown",
-        supplierName: newSupplier.supplierName || "N/A",
-        emailId: newSupplier.emailId || "Unknown",
-        phoneNumber: newSupplier.phoneNumber || "Unknown",
-        gstNo: newSupplier.gstNo || "N/A",
-        category: newSupplier.category || "Uncategorized"
-      };
-    
-      setSupplierData((prevData) => [...prevData, newSupplierData]); 
-      console.log("Updated Supplier Data:", [...supplierData, newSupplierData]);
-
+      setSupplierData((prevData) => [
+          ...prevData,
+          {
+              sNo: prevData.length + 1,
+              company: newSupplier.company || "Unknown",
+              supplierName: newSupplier.supplierName || "N/A",
+              emailId: newSupplier.emailId || "Unknown",
+              phoneNumber: newSupplier.phoneNumber || "Unknown",
+              gstNo: newSupplier.gstNo || "N/A",
+              category: newSupplier.category || "Uncategorized",
+          },
+      ]);
     };
-    
+  
     const [showOverlay, setShowOverlay] = useState(false);
     const [showOverlayAdd, setShowOverlayAdd] = useState(false);
   
-  
-    const toggleOverlay = () => setShowOverlay(!showOverlay);
     const toggleOverlayAdd = () => setShowOverlayAdd(!showOverlayAdd);
+
+    const handleViewDetail = (supplier) => {
+      setSelectedSupplier(supplier);
+      setShowOverlay(true);
+    };
 
     return (
       <>
@@ -110,7 +112,7 @@ const Suppliers = () => {
                               <td>{row.company}</td>
                               <td>{row.supplierName}</td>
                               <td>{row.emailId}</td>
-                              <td><button className="viewButton" onClick={toggleOverlay}>View Detail</button></td>
+                              <td><button className="viewButton" onClick={ () => handleViewDetail(row) }>View Detail</button></td>
                               
                             </tr>
                           ))}
@@ -121,8 +123,22 @@ const Suppliers = () => {
                 </div>
           </div>
         </div>
-        <AddSupplier isOpen={showOverlayAdd} onClose={() => setShowOverlayAdd(false)} onSupplierAdded={handleSupplierAdded}/>
-        <SupplierDetail isOpen={showOverlay} onClose={() => setShowOverlay(false)}/>
+        < AddSupplier isOpen={showOverlayAdd} onClose={() => setShowOverlayAdd(false)} onSupplierAdded={handleSupplierAdded} />
+        <SupplierDetail
+            isOpen={showOverlay}
+            onClose={() => setShowOverlay(false)}
+            supplier={selectedSupplier}
+            onSupplierDeleted={(id) => {
+                setSupplierData((prev) => prev.filter((sup) => sup.id !== id));
+            }}
+            onSupplierUpdated={(updatedSupplier) => {
+                setSupplierData((prev) =>
+                    prev.map((sup) => (sup.id === updatedSupplier.id ? updatedSupplier : sup))
+                );
+            }}
+        />
+
+
         </>
     );
 };
