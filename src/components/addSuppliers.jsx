@@ -89,7 +89,7 @@ export function AddSupplier({ isOpen, onClose, onSupplierAdded }) {
                 <div className="overlay">
                     <div className="addSupOverlayBackground" onClick={handleOverlayClick}>
                         <div className="addSupOverlayContainer" onClick={(e) => e.stopPropagation()}>
-                            <h2 className="title">Add New Supplier</h2>
+                            <h2 className="sup-add-title">Add New Supplier</h2>
                             <form onSubmit={handleSubmit} className="form">
                                 <div className="row">
                                     <div className="formGroup">

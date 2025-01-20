@@ -29,19 +29,6 @@
     border-radius: 10px;
 }
 
-.actionButton-print{
-    font-size: medium;
-    display: flex;
-    gap: 8px;
-    align-items: center;
-    justify-content: center;
-    background-color: #0E2547;
-    border: none;
-    padding: 10px 12px;
-    color: white;
-    border-radius: 10px;
-}
-
 .filterButton{
     font-size: medium;
     display: flex;
@@ -65,7 +52,7 @@
 
 .supplier-buttons{
     display: flex;
-    gap: 580px;
+    gap: 680px;
 }
 
 .rightControls{

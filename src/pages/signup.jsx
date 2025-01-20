@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import { signInWithGoogle } from '/src/components/googleAuth/googleFirebase.jsx'; 
 import '@/styles/signup.css';
 import Signupimg from '@/assets/SignupIcon.svg';
 
@@ -45,6 +46,37 @@ function SignupPage() {
             }
         }
     };
+
+    const handleGoogleSignIn = async () => {
+        try {
+          const user = await signInWithGoogle(); 
+          console.log(user);
+      
+          const selectedRole = prompt("Please select your role (retailer or supplier):", "retailer");
+      
+          if (!selectedRole || (selectedRole !== "retailer" && selectedRole !== "supplier")) {
+            alert("Invalid role selected. Defaulting to 'retailer'.");
+            setRole("retailer");
+          } else {
+            setRole(selectedRole);
+          }
+      
+          const response = await axios.post('http://localhost:5000/api/signup', {
+            email: user.email,
+            username: user.displayName,
+            role: selectedRole || "retailer",  
+            password: "google-auth",
+          });
+      
+          console.log(response.data);
+          alert("Google Sign-In successful!");
+          navigate('/dashboard'); 
+      
+        } catch (error) {
+          console.error(error);
+          alert("Google Sign-In failed. Please try again.");
+        }
+      };
 
     return (
         <div className='page'>
@@ -132,6 +164,10 @@ function SignupPage() {
 
                         <button className='submit-button' type="submit">Register</button>
                     </form>
+
+                    <button className='google-signin-button' onClick={handleGoogleSignIn}>
+                        Sign in with Google
+                    </button>
 
                     <div className='signup-link'>
                         <p>Already have an Account?</p>

@@ -58,9 +58,9 @@ const RequestReturn = () => {
             <div style={{ display: "flex" }}>
                 <Navbar />
                 <div style={{ flex: 1, padding: "20px" }}>
-                    <div className="return-container">
+                    <h2 className="title">Request Return</h2>
+                    <div className="return-container">   
                         <div className="request-return-container">
-                            <h2 className="title">Request Return</h2>
                             <form className="return-form" onSubmit={handleSubmit}>
                                 <div className="form-group">
                                     <label>Product</label>
